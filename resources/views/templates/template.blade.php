@@ -116,7 +116,9 @@
     
     </style>
 
-    <title>Exp Game</title>
+    <title>
+      @yield('title')
+    </title>
     
   </head>
   <body>
@@ -131,7 +133,7 @@
           {{-- <a class="p-2 text-white" href="#">Support</a>
           <a class="p-2 text-white" href="#">Pricing</a> --}}
           <a class="btn btn-primary mr-2 ml-2" href="#"> <i class = "icon_header fa fa-sign-in"></i> Sign In</a>
-          <a class="btn btn-outline-primary mr-2 ml-2" href="#">Sign up</a>
+          <a class="btn btn-outline-light mr-2 ml-2" href="#">Sign up</a>
         </nav>
  
       </div>
@@ -165,7 +167,7 @@
           <!-- Content -->
   
           <h5 class="text-uppercase putih"> <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp"> Exp Game</h5>
-          <p class = "putih">Here you can use rows and columns to organize your footer content.</p>
+          <p class = "putih">Exp Game adalah salah satu fasilitas penyedia jasa Voucher Game yang menyediakan berbagai pelayanan terbaik untuk kebutuhan anda.</p>
   
         </div>
         <!-- Grid column -->

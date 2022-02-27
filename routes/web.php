@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/home_dua',function(){
     return view('home_backup');
@@ -34,10 +34,16 @@ Route::get('/coba_css',function(){
 //     return view('admin.home');
 // });
 
+Route::get('/',[\App\Http\Controllers\LandingController::class,'LandingHome'])->name('LandingHome');
+Route::get('/home',[\App\Http\Controllers\LandingController::class,'Landing'])->name('Landing');
 Route::get('/admin/home',[\App\Http\Controllers\LandingController::class,'adminHome'])->name('adminHome');
+
+Route::get('/order/{id}',[\App\Http\Controllers\LandingController::class,'Order'])->name('Order');
+
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/admin/kategori',\App\Http\Controllers\KategoriController::class);
 
