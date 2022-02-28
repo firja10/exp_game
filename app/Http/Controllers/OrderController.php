@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -15,6 +16,8 @@ class OrderController extends Controller
     public function index()
     {
         //
+        $orders = Order::all()->slice(0,3);
+        return view('order.invoice',compact('orders'));
     }
 
     /**
@@ -36,6 +39,14 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+
+        Order::create($request->all());
+        // $orderscount = DB::table('orders')->count();
+        // $ordersid = DB::table('orders')->where('id',$orderscount);
+        return redirect('/daftar_invoice')->with('success-pesan','Anda Telah Melakukan Pemesanan, Silakan Lakukan Pembayaran');
+
+
+
     }
 
     /**

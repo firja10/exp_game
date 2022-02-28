@@ -43,14 +43,52 @@ class LandingController extends Controller
 
     }
 
-    public function Order($id,Kategori $orderskategori )
+    public function Order($id,Kategori $kategori )
     {
         # code...
 
-        $nominals = new Nominal;
-        $orderskategori = Kategori::FindOrfail($id);
-        $datanomin = $nominals->where('kategori_id',$nominals)->get();
-        return view('order.order',compact('orderskategori','datanomin'));
+        // $nominals = new Nominal;
+        $kategori = Kategori::FindOrfail($id);
+        $data = DB::table('nominals')->where('kategori_id',$id)->get();
+        return view('order.order',compact('kategori','data'));
+
+    }
+
+
+    public function ListInvoice()
+    {
+        # code...
+
+        $orders = Order::all()->slice(0,3);
+        return view('order.invoice',compact('orders'));
+
+    }
+
+
+
+
+
+
+
+    public function Invoice($invoice_code)
+    {
+        # code...
+
+        $orders = Order::findOrFail($invoice_code);
+        return view('order.invoice_id',compact('orders'));
+
+    }
+
+
+    public function PostOrder(Request $request)
+    {
+        # code...
+
+        Order::create($request->all());
+        $orderscount = DB::table('orders')->count();
+        $ordersid = DB::table('orders')->where('id',$orderscount);
+        return redirect('/invoice/list')->with('success-pesan','Anda Telah Melakukan Pemesanan, Silakan Lakukan Pembayaran');
+
 
     }
 

@@ -15,8 +15,8 @@ class AddFkToOrders extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('produk_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('produk_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('produk_id')->references('id')->on('produks')->onDelete('cascade')->onUpdate('cascade');
       

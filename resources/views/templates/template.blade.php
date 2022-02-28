@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    
+
     <style>
         #header{
             background-color:#a4518cff;
@@ -112,9 +114,19 @@
           font-size:20px;
         }
 
+        .radiobtn{
+    /* position: relative; */
+    /* display: block; */
+    margin-left:10px;
+    margin-right:10px;
+  }
+  
+
     
     
     </style>
+
+    @yield('style')
 
     <title>
       @yield('title')
@@ -200,21 +212,21 @@
         <div class="col-md-3 mb-md-0 mb-3">
   
           <!-- Links -->
-          <h5 class="text-uppercase putih">Links</h5>
+          <h5 class="text-uppercase putih">List of Games</h5>
   
           <ul class="list-unstyled putih">
             <li>
-              <a href="#!" class = "hiperlink" >Link 1</a>
+              <a href="#!" class = "hiperlink" >Free Fire</a>
             </li>
             <li>
-              <a href="#!" class = "hiperlink" >Link 2</a>
+              <a href="#!" class = "hiperlink" >Call of Duty Mobile</a>
             </li>
             <li>
-              <a href="#!" class = "hiperlink" >Link 3</a>
+              <a href="#!" class = "hiperlink" >Arena of Valor</a>
             </li>
-            <li>
+            {{-- <li>
               <a href="#!" class = "hiperlink" >Link 4</a>
-            </li>
+            </li> --}}
           </ul>
   
         </div>

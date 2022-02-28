@@ -40,6 +40,11 @@ Route::get('/admin/home',[\App\Http\Controllers\LandingController::class,'adminH
 
 Route::get('/order/{id}',[\App\Http\Controllers\LandingController::class,'Order'])->name('Order');
 
+Route::get('/invoice/{invoice_code}',[\App\Http\Controllers\LandingController::class,'Invoice'])->name('Invoice');
+Route::get('/daftar_invoice',[\App\Http\Controllers\LandingController::class,'ListInvoice'])->name('ListInvoice');
+
+// Route::post('/invoice',[\App\Http\Controllers\LandingController::class,'PostOrder'])->name('PostOrder');
+Route::resource('/invoice',\App\Http\Controllers\OrderController::class);
 
 
 Auth::routes();
