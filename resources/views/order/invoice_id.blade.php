@@ -35,6 +35,15 @@ Invoice {{$orders->invoice_code}}
         <center>
           
         </center>
+
+
+        <?php
+        
+        if($orders->status_order == 0)
+        {
+
+        ?>
+
         <div class="col d-flex justify-content-center invoice_bayar">
           <div class="card">
             <div class="card-header d-flex justify-content-between">
@@ -76,6 +85,17 @@ Invoice {{$orders->invoice_code}}
 
               <center>
 
+
+                <?php 
+
+                    $nominal = (array) $nominals;
+                    // var_dump($nominal['nominal_kategori']);
+                    
+                
+                     
+
+                  
+                  ?>
               
 
               <table class="table" style = "text-align: center">
@@ -90,8 +110,8 @@ Invoice {{$orders->invoice_code}}
                 <tbody>
                   <tr>
                 
-                    <td>{{$orders->nama_game}} ({{$orders->nominal}})</td>
-                    <td>{{$orders->id_user}}</td>
+                    <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
+                    <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
                     <td>{{$orders->metode_bayar}}</td>
                   </tr>
         
@@ -153,7 +173,11 @@ Invoice {{$orders->invoice_code}}
              <br>
 
             <center>
-              <a href="#" class="btn btn-primary">Lakukan Konfirmasi Pembayaran</a>
+              {{-- <a href="#" class="btn btn-primary">Lakukan Konfirmasi Pembayaran</a> --}}
+
+
+              <button class = "btn btn-primary" type = "button" data-toggle = "modal" data-target = "#ModalKonfirmasi"> Lakukan Konfirmasi Pembayaran</button>
+
             </center>
               
             </div>
@@ -167,16 +191,158 @@ Invoice {{$orders->invoice_code}}
 
 
 
+        <?php 
+      }
+
+        elseif($orders->status_order == 1) {
+
+        ?>
+
+
+
+
+            <div class="col-lg-12 mb-4">
+              <div class="card">
+
+                <div class="alert alert-danger">
+                  <center>
+                    <p class = "card-text">Tunggu Konfirmasi Pembayaran</p>
+                  </center>
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+      <?php
+              }
+
+        elseif($orders->status_order == 2)
+        {
+
+      ?>
+
+
+      <div class="col-lg-12 mb-4">
+        <div class="card">
+
+          <div class="alert alert-success">
+            <center>
+              <p class = "card-text"> Anda Telah Melakukan Pembayaran. Terima Kasih</p>
+            </center>
+          </div>
+
+
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+          <?php 
+          }
+
+          ?>
+
+
+
         {{-- <div class="col-lg-2">
 
         </div> --}}
 
 
         <!-- /.col-md-6 -->
+
+
+
+
+
       </div>
       <!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content -->
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="ModalKonfirmasi" tabindex="-1" role="dialog" aria-labelledby="ModalKonfirmasiLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Pembayaran</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+
+      <form method = "post" action = "{{route('invoice.update', $orders->id)}}" enctype = "multipart/form-data"  >
+        @csrf
+        @method('PATCH')
+      
+
+
+        <div class="modal-body">
+        
+          <div class="form-group">
+            <label for="uploadFile">Silakan Upload Bukti Pembayaran</label>
+            <input type="file" class="form-control" id="uploadFile" name = "bukti_bayar">
+            {{-- <input type="hidden" value = "1" name = "status_order"> --}}
+          </div>
+      
+          {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit Bukti Bayar</button>
+      </div>
+
+    </form>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 @endsection

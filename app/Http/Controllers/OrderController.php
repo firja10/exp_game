@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +23,8 @@ class OrderController extends Controller
         return view('order.invoice',compact('orders'));
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,6 +34,9 @@ class OrderController extends Controller
     {
         //
     }
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -88,6 +96,9 @@ class OrderController extends Controller
 
     }
 
+
+
+
     /**
      * Display the specified resource.
      *
@@ -103,6 +114,9 @@ class OrderController extends Controller
 
     }
 
+
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -114,6 +128,9 @@ class OrderController extends Controller
         //
     }
 
+
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -121,10 +138,44 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Order $order, $id)
     {
         //
+
+        if($request->hasFile('bukti_bayar'))
+        {
+
+            $filename = $request['bukti_bayar']->getClientOriginalName();
+
+            if(Order::find($id)->bukti_bayar)
+            {
+
+                Storage::delete('/public/storage/order/'.Order::find($id)->bukti_bayar);
+
+            }
+
+            $request["bukti_bayar"]->storeAs('bukti_bayar', $filename, 'public'); }
+
+            else {
+                $filename=Order::find($id)->bukti_bayar;
+            }
+
+        
+            $orders = Order::where('id', $id)->update([
+                'status_order' => 1,
+                'bukti_bayar' =>$filename,
+            ]);
+
+
+            return redirect('/daftar_invoice/'. $id)->with('update_bukti','Bukti Bayar Berhasil Diupdate');
+
+
+
+
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.

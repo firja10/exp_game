@@ -92,7 +92,8 @@ class LandingController extends Controller
         # code...
 
         $orders = Order::findOrFail($id);
-        return view('order.invoice_id',compact('orders'));
+        $nominals = DB::table('nominals')->where('id',$orders->nominal)->first();
+        return view('order.invoice_id',compact('orders','nominals'));
 
     }
 
