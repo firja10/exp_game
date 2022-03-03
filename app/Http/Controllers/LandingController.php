@@ -60,6 +60,8 @@ class LandingController extends Controller
         # code...
 
         $orders = Order::all()->slice(0,3);
+        
+
         return view('order.invoice',compact('orders'));
 
     }
@@ -70,26 +72,53 @@ class LandingController extends Controller
 
 
 
-    public function Invoice($invoice_code)
+    // public function Invoice($invoice_code)
+    // {
+    //     # code...
+
+    //     $orders = Order::findOrFail($invoice_code);
+    //     return view('order.invoice_id',compact('orders'));
+
+    // }
+
+
+
+
+
+
+
+    public function Invoice($id)
     {
         # code...
 
-        $orders = Order::findOrFail($invoice_code);
+        $orders = Order::findOrFail($id);
         return view('order.invoice_id',compact('orders'));
 
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function PostOrder(Request $request)
     {
         # code...
-
         Order::create($request->all());
         $orderscount = DB::table('orders')->count();
         $ordersid = DB::table('orders')->where('id',$orderscount);
         return redirect('/invoice/list')->with('success-pesan','Anda Telah Melakukan Pemesanan, Silakan Lakukan Pembayaran');
-
-
     }
 
 

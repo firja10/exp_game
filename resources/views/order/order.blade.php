@@ -86,21 +86,34 @@ Order {{$kategori->nama_kategori}}
         <div class="col-lg-6">
           <div class="card card-primary card-outline">
             <div class="card-body">
-              <h5 class="card-title">
+              <h2 class="card-title">
                   <center>
                     <img class="card-img-top" src="{{asset('assets/img/mobile_games/'. $kategori->photo_kategori)}}" alt="Card image cap"  style = "width:35%;">
                   </center>
                   <br>
                   {{$kategori->nama_kategori}}
                
-              </h5>
+              </h2>
 
               <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's
-                content.
+                Top Up Diamonds {{$kategori->nama_kategori}} : 
+                <ol type = 1>
+                  <li> Masukkan ID dan Server </li>
+                  <li> Pilih Nominal Diamond </li>
+                  <li> Pilih Metode Pembayaran</li>
+                  <li> Isi Nomor WhatsApp Dengan Benar</li>
+                  <li> Klik Order Now & Lakukan Pembayaran</li>
+                  <li> Diamond/Starlight/Twilight Otomatis Masuk Ke Akunmu</li>
+
+                  <br>
+
+
+
+
+                </ol>
               </p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              {{-- <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a> --}}
             </div>
           </div><!-- /.card -->
           <br>
@@ -138,9 +151,12 @@ Order {{$kategori->nama_kategori}}
                       <input type="number" class="form-control" id="id_server" name = "id_server" placeholder = "ID Server Anda">
                     </div>
 
-                </div>
+                    <input type="hidden" name="nama_game" value = "{{$kategori->nama_kategori}}">
+                    <input type="hidden" name="status_order" value ="0">
+                
+                  </div>
                     {{-- <br> --}}
-                    <button type="submit" class="btn btn-primary mb-2">Panduan</button>
+                    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">Panduan</button>
                   {{-- </form> --}}
 
               {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -150,6 +166,19 @@ Order {{$kategori->nama_kategori}}
 
           <br>
        
+
+          <?php 
+          
+          // $terakhir = DB::table('orders')->latest('id')->first();
+          // $array_akhir = (array) $terakhir;
+          // $id_previous = (int) $array_akhir['id'] ;
+          // echo $id_previous;
+        
+       
+   
+          ?>
+
+
 
 
 
@@ -177,7 +206,7 @@ Order {{$kategori->nama_kategori}}
                                   <div class="col-md-4 col-lg-4 col-sm-4">
                                     
                                     <label class = "card_order">
-                                      <input type="radio" name="nominal" class="card-input-element" value = "{{$nomin->harga_nominal}}" />
+                                      <input type="radio" name="nominal" class="card-input-element" value = "{{$nomin->id}}" />
                             
                                         <div class="card card-default card-input">
                                           <div class="card-header"> <i class = "fa fa-diamond" arria-hidden="true" ></i>&nbsp;{{$nomin->nominal_kategori}}</div>
@@ -285,7 +314,7 @@ Order {{$kategori->nama_kategori}}
                                   <div class="col-md-12 col-lg-12 col-sm-12">
                                     
                                     <label class = "card_order">
-                                      <input type="radio" name="metode_bayar" class="card-input-element" value = "tf_bca" />
+                                      <input type="radio" name="metode_bayar" class="card-input-element" value = "BCA" />
                             
                                         <div class="card card-default card-input">
                                           <div class="card-header"> <img src="{{asset('daftar_bank/bca.svg')}}" alt="" class = "gambar_bayar"> </div>
@@ -303,7 +332,7 @@ Order {{$kategori->nama_kategori}}
                                   <div class="col-md-12 col-lg-12 col-sm-12">
                                     
                                     <label class = "card_order">
-                                      <input type="radio" name="metode_bayar" class="card-input-element" value = "tf_bni" />
+                                      <input type="radio" name="metode_bayar" class="card-input-element" value = "BNI" />
                             
                                         <div class="card card-default card-input">
                                           <div class="card-header"> <img src="{{asset('daftar_bank/bni.png')}}" alt="" class = "gambar_bayar"> </div>
@@ -450,6 +479,30 @@ Order {{$kategori->nama_kategori}}
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content -->
+
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
