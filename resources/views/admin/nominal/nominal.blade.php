@@ -1,12 +1,12 @@
 @extends('admin.template')
 
 @section('title')
-    Kategori Game
+   Nominal Game
 @endsection
 
 @section('style')
 <style>
-  #kategori_game{
+  #nominal{
 
     background-color:#fff;
     color:#343a40;
@@ -34,8 +34,8 @@
                 </h3>
 
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-form-kategori">
-                    + Tambah Kategori Game
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-form-nominal">
+                    + Tambah Nominal Game
                   </button>
 
 
@@ -46,22 +46,22 @@
                 <thead>
                 <tr>
                   <th>No. </th>
-                  <th>Nama Kategori</th>
-                  <th>Foto Kategori</th>
-                  <th>Slug</th>
+                  <th>Nama Nominal</th>
+                  <th>Harga Nominal</th>
+                  <th>ID Kategori</th>
                 </tr>
                 </thead>
                 <tbody>
 
                     <?php  $no = 1; ?>
-                    @foreach ($kategoris as $category)
+                    @foreach ($nominal as $nominals)
                     <tr>
 
                   
                             <td><?php echo $no++; ?></td>
-                            <td>{{$category->nama_kategori}}</td>
-                            <td>{{$category->photo_kategori}}</td>
-                            <td>{{$category->slug}}</td>
+                            <td>{{$nominals->nominal_kategori}}</td>
+                            <td>{{$nominals->harga_nominal}}</td>
+                            <td>{{$nominals->kategori_id}}</td>
 
                     </tr>
                 @endforeach  
@@ -71,9 +71,9 @@
                 <tfoot>
                 <tr>
                     <th>No. </th>
-                    <th>Nama Kategori</th>
-                    <th>Foto Kategori</th>
-                    <th>Slug</th>
+                    <th>Nama Nominal</th>
+                    <th>Harga Nominal</th>
+                    <th>ID Kategori</th>
                 </tr>
                 </tfoot>
               </table>
@@ -95,11 +95,11 @@
 
 
 
-    <div class="modal fade" id="modal-form-kategori">
+    <div class="modal fade" id="modal-form-nominal">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title"> Form Kategori </h4>
+              <h4 class="modal-title"> Form Nominal</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -110,31 +110,43 @@
 
 
  
-              <form method = "post" action = "{{route('kategori.store')}}" enctype="multipart/form-data" >
+              <form method = "post" action = "{{route('nominal.store')}}" enctype="multipart/form-data" >
                @csrf
                
                 <div class="card-body">
+
                   <div class="form-group">
-                    <label for="nama_kategori">Nama Kategori</label>
-                    <input type="text" class="form-control" id="nama_kategori" placeholder="Masukkan Kategori" name = "nama_kategori">
+                    <label for="nominal_kategori">Nama Nominal</label>
+                    <input type="text" class="form-control" id="nominal_kategori" placeholder="Masukkan Nominal" name = "nominal_kategori">
                   </div>
+
+
                   <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" class="form-control" id="slug"  name = "slug" placeholder="Slug">
+                    <label for="harga_nominal">Harga Nominal</label>
+                    <input type="text" class="form-control" id="harga_nominal" placeholder="Masukkan Harga Nominal" name = "harga_nominal">
                   </div>
+
                   <div class="form-group">
-                    <label for="photo_kategori">Foto Kategori</label>
-                    <input type="file" class="form-control" id="photo_kategori" name = "photo_kategori">
+                    <label for="kategori_id">Kategori</label>
+
+                    <select name="kategori_id" id="kategori_id" class = "form-control">
+                        @foreach ($kategoris as $kateg)
+                          <option value="{{$kateg->id}}">{{$kateg->nama_kategori}}</option>
+                        @endforeach
+                        
+                    </select>
                   </div>
+
                 </div>
                 <!-- /.card-body -->
 
-                {{-- <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div> --}}
+                <div class="card-footer">
+                  {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+    
+                </div>
 
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary ml-auto" type = "submit">Submit Kategori Game</button>
+                <button class="btn btn-primary ml-auto" type = "submit">Submit Nominal</button>
 
               </form>
 

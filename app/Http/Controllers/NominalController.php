@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Nominal;
 use Illuminate\Http\Request;
+use App\Models\Kategori;
 
 class NominalController extends Controller
 {
@@ -15,6 +16,12 @@ class NominalController extends Controller
     public function index()
     {
         //
+
+        $nominal = Nominal::all();
+        $kategoris = Kategori::all();
+        // $kategoris = DB::table('nominals')->where('id',)
+        return view('admin.nominal.nominal',compact('nominal','kategoris'));
+
     }
 
     /**
@@ -25,6 +32,9 @@ class NominalController extends Controller
     public function create()
     {
         //
+
+        return view('admin.nominal.nominal');
+
     }
 
     /**
@@ -36,6 +46,11 @@ class NominalController extends Controller
     public function store(Request $request)
     {
         //
+
+        $nominal = Nominal::create($request->all());
+        return redirect('/admin/nominal');
+
+
     }
 
     /**
@@ -44,9 +59,14 @@ class NominalController extends Controller
      * @param  \App\Models\Nominal  $nominal
      * @return \Illuminate\Http\Response
      */
-    public function show(Nominal $nominal)
+    public function show(Nominal $nominal, $id)
     {
         //
+    
+        $nominal = Nominal::findorFail($id);
+        return view('admin.nominal.nominal_id', compact('nominal'));
+
+    
     }
 
     /**
@@ -55,9 +75,13 @@ class NominalController extends Controller
      * @param  \App\Models\Nominal  $nominal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Nominal $nominal)
+    public function edit(Nominal $nominal, $id)
     {
         //
+
+        $nominal = Nominal::findorFail($id);
+        return view('admin.nominal.nominal_id', compact('nominal'));
+
     }
 
     /**
@@ -67,9 +91,23 @@ class NominalController extends Controller
      * @param  \App\Models\Nominal  $nominal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Nominal $nominal)
+    public function update(Request $request, Nominal $nominal, $id)
     {
         //
+
+        $nominal = Nominal::where('id', $id)->update([
+
+            'nominal_kategori'=>$request['nominal_kategori'],
+            'harga_nominal'=>$request['harga_nominal'],
+            'kategori_id'=>$request['kategori_id'],
+
+            
+        ]);
+
+        return redirect('/admin/nominal')->with('success-update-nominal','Data Nominal Telah Terupdate');
+
+
+
     }
 
     /**
@@ -78,8 +116,14 @@ class NominalController extends Controller
      * @param  \App\Models\Nominal  $nominal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Nominal $nominal)
+    public function destroy(Nominal $nominal, $id)
     {
         //
+
+        $nominal = Nominal::findOrFail($id);
+        $nominal->delete();
+        return redirect('/admin/nominal')->with('success-delete-nominal','Data Nominal Telah Dihapus');
+
+
     }
 }

@@ -140,12 +140,41 @@
             <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
             Exp Game</h5>
         <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 text-white" href="#"> <i class = "icon_header fa fa-home"></i> Home</a>
-          <a class="p-2 text-white" href="#"> <i class = "icon_header fa fa-wpforms" ></i> Pesanan Anda</a>
+          <a class="p-2 text-white" href="{{url('/')}}"> <i class = "icon_header fa fa-home"></i> Home</a>
+          <a class="p-2 text-white" href="{{url('/cari_invoice')}}"> <i class = "icon_header fa fa-wpforms" ></i> Pesanan Anda</a>
           {{-- <a class="p-2 text-white" href="#">Support</a>
           <a class="p-2 text-white" href="#">Pricing</a> --}}
-          <a class="btn btn-primary mr-2 ml-2" href="#"> <i class = "icon_header fa fa-sign-in"></i> Sign In</a>
-          <a class="btn btn-outline-light mr-2 ml-2" href="#">Sign up</a>
+
+
+          @if(Auth::check())
+
+
+
+
+          @if(Auth::user()->is_admin == 1)
+
+          <a class="p-2 text-white" href="{{url('/admin/home')}}"> <i class = "icon_header fa fa-home"></i> Halaman Admin</a>
+              
+          @endif
+
+
+
+
+          <a class = "btn btn-primary mr-2 ml-2" href="{{ route('logout') }}" id = "keluar"  onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Logout</a>
+              
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+          
+
+
+          @else
+
+          <a class="btn btn-primary mr-2 ml-2" href="{{url('/login')}}"> <i class = "icon_header fa fa-sign-in"></i> Sign In Admin</a>
+          {{-- <a class="btn btn-outline-light mr-2 ml-2" href="{{url('/register')}}">Sign up</a> --}}
+          @endif
+       
         </nav>
  
       </div>

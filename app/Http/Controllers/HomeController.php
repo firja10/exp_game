@@ -13,7 +13,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
 
     /**
@@ -25,4 +26,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+     /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function adminHome()
+    {
+        return view('admin.home');
+    }
+
+
+
+
 }

@@ -194,7 +194,7 @@ Order {{$kategori->nama_kategori}}
                     <div class="col-md-4"> --}}
 
                         
-                        @foreach ($data as $nomin)
+                      
                             {{-- <a href="#" class="btn btn-primary"> <i class = "fa fa-diamond" arria-hidden="true" ></i> &nbsp; {{$nomin->nominal_kategori}} </a> --}}
                         
                         
@@ -203,6 +203,12 @@ Order {{$kategori->nama_kategori}}
                                                     
                               <div class="row">
                                 
+
+
+
+                                @foreach ($data as $nomin)
+                                
+
                                   <div class="col-md-4 col-lg-4 col-sm-4">
                                     
                                     <label class = "card_order">
@@ -219,6 +225,7 @@ Order {{$kategori->nama_kategori}}
                                     
                                   </div>
                              
+                                  @endforeach
 
 
 
@@ -229,8 +236,7 @@ Order {{$kategori->nama_kategori}}
 
                         
                         
-                        @endforeach
-
+                    
 
                  
 
@@ -329,6 +335,8 @@ Order {{$kategori->nama_kategori}}
                                   </div>
 
 
+
+
                                   <div class="col-md-12 col-lg-12 col-sm-12">
                                     
                                     <label class = "card_order">
@@ -344,6 +352,56 @@ Order {{$kategori->nama_kategori}}
                                     </label>
                                     
                                   </div>
+
+
+
+
+
+
+                                  <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                    <label class = "card_order">
+                                      <input type="radio" name="metode_bayar" class="card-input-element" value = "MANDIRI" />
+                            
+                                        <div class="card card-default card-input">
+                                          <div class="card-header"> <img src="{{asset('daftar_bank/MANDIRI.png')}}" alt="" class = "gambar_bayar"> </div>
+                                          <div class="card-body">
+                                            <h5> Bank Mandiri</h5>
+                                          </div>
+                                        </div>
+                            
+                                    </label>
+                                    
+                                  </div>
+
+
+
+
+
+
+                                  <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                    <label class = "card_order">
+                                      <input type="radio" name="metode_bayar" class="card-input-element" value = "BTPN" />
+                            
+                                        <div class="card card-default card-input">
+                                          <div class="card-header"> <img src="{{asset('daftar_bank/BTPN.png')}}" alt="" class = "gambar_bayar"> </div>
+                                          <div class="card-body">
+                                            <h5> Bank BTPN</h5>
+                                          </div>
+                                        </div>
+                            
+                                    </label>
+                                    
+                                  </div>
+
+
+
+
+
+
+
+
 
 
                                   
@@ -374,46 +432,116 @@ Order {{$kategori->nama_kategori}}
                           </div>
                           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
-                              And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+                              Silakan Login / Sign In Terlebih Dahulu Untuk menjadi Reseller
                             </div>
                           </div>
                         </div>
 
                         <br>
 
-                        <div class="card">
-                          <div class="card-header" id="headingThree">
+
+
+                        {{-- <div class="card">
+                          <div class="card-header" id="headingFour">
                             <h2 class="mb-0">
-                              <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                              <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                 <strong>
                                  Virtual Account <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                                 </strong>
                                </button>
                             </h2>
                           </div>
-                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                             <div class="card-body">
                               And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
                             </div>
                           </div>
                         </div>
 
-                        <br>
+                        <br> --}}
 
 
                         <div class="card">
-                          <div class="card-header" id="headingThree">
+                          <div class="card-header" id="headingFive">
                             <h2 class="mb-0">
-                              <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                              <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                                 <strong>
                                  Convenience Store <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                 </strong>
                                </button>
                             </h2>
                           </div>
-                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                             <div class="card-body">
-                              And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+                             
+
+
+
+
+
+                              <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                <label class = "card_order">
+                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "ALFAMART" />
+                        
+                                    <div class="card card-default card-input">
+                                      <div class="card-header"> <img src="{{asset('daftar_bank/ALFAMART.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-body">
+                                        <h5>Alfamart</h5>
+                                      </div>
+                                    </div>
+                        
+                                </label>
+                                
+                              </div>
+
+
+
+
+
+                              <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                <label class = "card_order">
+                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "INDOMARET" />
+                        
+                                    <div class="card card-default card-input">
+                                      <div class="card-header"> <img src="{{asset('daftar_bank/INDOMARET.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-body">
+                                        <h5>Indomaret</h5>
+                                      </div>
+                                    </div>
+                        
+                                </label>
+                                
+                              </div>
+
+
+
+
+                              <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                <label class = "card_order">
+                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "ALFAMIDI" />
+                        
+                                    <div class="card card-default card-input">
+                                      <div class="card-header"> <img src="{{asset('daftar_bank/ALFAMIDI.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-body">
+                                        <h5>Alfamidi</h5>
+                                      </div>
+                                    </div>
+                        
+                                </label>
+                                
+                              </div>
+
+
+
+
+
+
+
+
+
                             </div>
                           </div>
                         </div>
@@ -422,18 +550,123 @@ Order {{$kategori->nama_kategori}}
 
 
                         <div class="card">
-                          <div class="card-header" id="headingThree">
+                          <div class="card-header" id="headingSix">
                             <h2 class="mb-0">
-                              <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                              <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
                                 <strong>
                                 E - Wallet <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                 </strong>
                                </button>
                             </h2>
                           </div>
-                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
                             <div class="card-body">
-                              And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+                             
+
+                              <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                <label class = "card_order">
+                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "OVO" />
+                        
+                                    <div class="card card-default card-input">
+                                      <div class="card-header"> <img src="{{asset('daftar_bank/OVO.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-body">
+                                        <h5>OVO</h5>
+                                      </div>
+                                    </div>
+                        
+                                </label>
+                                
+                              </div>
+
+
+
+                              <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                <label class = "card_order">
+                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "GOPAY" />
+                        
+                                    <div class="card card-default card-input">
+                                      <div class="card-header"> <img src="{{asset('daftar_bank/GOPAY.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-body">
+                                        <h5>Go-Pay</h5>
+                                      </div>
+                                    </div>
+                        
+                                </label>
+                                
+                              </div>
+
+
+
+
+
+
+                              <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                <label class = "card_order">
+                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "DANA" />
+                        
+                                    <div class="card card-default card-input">
+                                      <div class="card-header"> <img src="{{asset('daftar_bank/DANA.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-body">
+                                        <h5>Dana</h5>
+                                      </div>
+                                    </div>
+                        
+                                </label>
+                                
+                              </div>
+
+
+
+
+                              <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                <label class = "card_order">
+                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "SHOPEEPAY" />
+                        
+                                    <div class="card card-default card-input">
+                                      <div class="card-header"> <img src="{{asset('daftar_bank/SHOPEEPAY.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-body">
+                                        <h5>Shopee-Pay</h5>
+                                      </div>
+                                    </div>
+                        
+                                </label>
+                                
+                              </div>
+
+
+
+
+
+
+                              <div class="col-md-12 col-lg-12 col-sm-12">
+                                    
+                                <label class = "card_order">
+                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "QRIS" />
+                        
+                                    <div class="card card-default card-input">
+                                      <div class="card-header"> <img src="{{asset('daftar_bank/QRIS.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-body">
+                                        <h5>QRIS</h5>
+                                      </div>
+                                    </div>
+                        
+                                </label>
+                                
+                              </div>
+
+
+
+
+
+
+
+
+
+
                             </div>
                           </div>
                         </div>
@@ -488,7 +721,7 @@ Order {{$kategori->nama_kategori}}
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Silakan Sesuaikan Dengan Gambar Berikut : </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -498,7 +731,7 @@ Order {{$kategori->nama_kategori}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
       </div>
     </div>
   </div>

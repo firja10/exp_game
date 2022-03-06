@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +18,6 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
         $orders = Order::all()->slice(0,3);
         return view('order.invoice',compact('orders'));
     }
@@ -150,11 +149,11 @@ class OrderController extends Controller
             if(Order::find($id)->bukti_bayar)
             {
 
-                Storage::delete('/public/storage/order/'.Order::find($id)->bukti_bayar);
+                Storage::delete('/public/storage/Order/'.Order::find($id)->bukti_bayar);
 
             }
 
-            $request["bukti_bayar"]->storeAs('bukti_bayar', $filename, 'public'); }
+            $request["bukti_bayar"]->storeAs('Order', $filename, 'public'); }
 
             else {
                 $filename=Order::find($id)->bukti_bayar;

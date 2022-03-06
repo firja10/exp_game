@@ -36,7 +36,6 @@ Route::get('/coba_css',function(){
 
 Route::get('/',[\App\Http\Controllers\LandingController::class,'LandingHome'])->name('LandingHome');
 Route::get('/home',[\App\Http\Controllers\LandingController::class,'Landing'])->name('Landing');
-Route::get('/admin/home',[\App\Http\Controllers\LandingController::class,'adminHome'])->name('adminHome');
 
 Route::get('/order/{id}',[\App\Http\Controllers\LandingController::class,'Order'])->name('Order');
 
@@ -45,15 +44,48 @@ Route::get('/daftar_invoice',[\App\Http\Controllers\LandingController::class,'Li
 // Route::get('/daftar_invoice/{invoice_code}',[\App\Http\Controllers\LandingController::class,'Invoice'])->name('Invoice');
 Route::get('/daftar_invoice/{id}',[\App\Http\Controllers\LandingController::class,'Invoice'])->name('Invoice');
 
+Route::get('/cari_invoice',[\App\Http\Controllers\LandingController::class,'pencarianinvoice'])->name('pencarianinvoice');
+
+Route::get('/searchinvoice', [\App\Http\Controllers\LandingController::class,'searchinvoice'])->name('searchinvoice');
+
+// Route::post('/searchinvoice/{id}', [\App\Http\Controllers\LandingController::class,'searchinvoice'])->name('searchinvoice');
+
 
 
 
 // Route::post('/invoice',[\App\Http\Controllers\LandingController::class,'PostOrder'])->name('PostOrder');
-Route::resource('/invoice',\App\Http\Controllers\OrderController::class);
 
 
-Auth::routes();
+
+// Routing Invoice 
+// Route::resource('/invoice',\App\Http\Controllers\OrderController::class);
+
+
+
+
+
+
+// Halaman Admin 
+
+
+Route::get('/admin/invoice',[\App\Http\Controllers\LandingController::class,'semuainvoice'])->name('semuainvoice');
+Route::delete('/admin/invoice/{id}',[\App\Http\Controllers\LandingController::class,'hapusinvoice'])->name('hapusinvoice');
+Route::patch('/admin/invoice/{id}',[\App\Http\Controllers\LandingController::class,'updatekonfirmasiinvoice'])->name('updatekonfirmasiinvoice');
+
+Route::patch('/admin/invoice/{id}/gagal',[\App\Http\Controllers\LandingController::class,'updateGagalinvoice'])->name('updateGagalinvoice');
+
+
+
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/admin/kategori',\App\Http\Controllers\KategoriController::class);
 
+
+
+
+Auth::routes(['verify' => true]);
+Route::get('/admin/home',[\App\Http\Controllers\LandingController::class,'adminHome'])->name('adminHome')->middleware('is_admin');
+Route::resource('/admin/kategori',\App\Http\Controllers\KategoriController::class)->middleware('is_admin');
+Route::resource('/admin/nominal',\App\Http\Controllers\NominalController::class)->middleware('is_admin');
+
+Route::resource('/invoice',\App\Http\Controllers\OrderController::class)->middleware('is_admin');
