@@ -46,6 +46,11 @@ Selamat Datang di Exp Game
             <h1 class = "judul">Daftar Layanan Kami</h1>
         </center>
 
+
+
+        <center>
+
+ 
           <div class="row mt-4">
 
     
@@ -89,6 +94,11 @@ Selamat Datang di Exp Game
 
 
           </div>
+
+
+        </center>
+
+
         </div>
        
 
@@ -102,8 +112,10 @@ Selamat Datang di Exp Game
             <h1 class = "judul" id = "judul_rule"> Alur Pelayanan Kami</h1>
           </center>
          
+          <center>
+
           
-          <div class="row">
+          <div class="row justify-content-center">
 
 
 
@@ -200,6 +212,10 @@ Selamat Datang di Exp Game
 
 
           </div>
+
+
+        </center>
+
         </div>
 
 

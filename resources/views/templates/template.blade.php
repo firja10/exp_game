@@ -120,7 +120,38 @@
     margin-left:10px;
     margin-right:10px;
   }
+
+
+  .mobile-nav-toggle{
+    cursor: pointer;
+  display: none;
+  }
   
+
+
+  #logo-mobile{
+    display:none;
+  }
+
+  
+
+
+  @media (max-width:768px){
+    .mobile-nav-toggle{
+      display:block;
+    }
+
+    /* #logo-desktop{
+      display:none;
+    } */
+
+   #logo-mobile{
+     display:block
+   }
+
+    
+
+  }
 
     
     
@@ -136,10 +167,21 @@
   <body>
 
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-5 shadow-sm" id = "header">
-        <h5 class="my-0 mr-md-auto font-weight-normal">
-            <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
-            Exp Game</h5>
-        <nav class="my-2 my-md-0 mr-md-3">
+      {{-- <div class="container d-flex align-items-center" id = "header"> --}}
+
+
+      {{-- <center> --}}
+        {{-- <h5 class="my-0 mr-md-auto font-weight-normal" id = "logo-desktop"> --}}
+          <h5 class="me-auto font-weight-normal" id = "logo-desktop">
+          <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
+          Exp Game</h5>
+      {{-- </center> --}}
+
+
+            <center>
+
+
+        <nav class="my-2 my-md-0 mr-md-3 d-none d-md-block" id = "navbar">
           <a class="p-2 text-white" href="{{url('/')}}"> <i class = "icon_header fa fa-home"></i> Home</a>
           <a class="p-2 text-white" href="{{url('/cari_invoice')}}"> <i class = "icon_header fa fa-wpforms" ></i> Pesanan Anda</a>
           {{-- <a class="p-2 text-white" href="#">Support</a>
@@ -174,9 +216,33 @@
           <a class="btn btn-primary mr-2 ml-2" href="{{url('/login')}}"> <i class = "icon_header fa fa-sign-in"></i> Sign In Admin</a>
           {{-- <a class="btn btn-outline-light mr-2 ml-2" href="{{url('/register')}}">Sign up</a> --}}
           @endif
+
+          
        
         </nav>
+
+      </center>
+
+
+
+      <nav id = "navbar">
+
+        <ul style = "list-style: none;">
+          {{-- <li  style = "display:inline;float:left;"><h5 class=" font-weight-normal" id = "logo-mobile">
+            <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
+            Exp Game</h5></li> --}}
+          <li  style = "display:inline;float:right;">
+          <button class="btn mobile-nav-toggle item-center">
+            <i class = "fa fa-list "></i>
+          </button></li>
+        </ul>
+
+      </nav>
+
+
  
+
+
       </div>
   
       <br>
