@@ -199,7 +199,7 @@
 
       {{-- <center> --}}
         {{-- <h5 class="my-0 mr-md-auto font-weight-normal" id = "logo-desktop"> --}}
-          <h5 class="me-auto font-weight-normal" id = "logo-desktop">
+          <h5 class="mr-md-auto font-weight-normal" id = "logo-desktop">
           <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
           Exp Game</h5>
       {{-- </center> --}}
@@ -218,7 +218,7 @@
 
 
 
-            {{-- <center> --}}
+            <center>
 
 
         <nav class="my-2 my-md-0 mr-md-3" id = "navbar">
@@ -261,7 +261,7 @@
        
         </nav>
 
-      {{-- </center> --}}
+      </center>
 
 
 

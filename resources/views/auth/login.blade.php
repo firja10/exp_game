@@ -94,7 +94,7 @@
       <br>
       <center>
         <p class="mb-1">
-            <a href="forgot-password.html">Saya Lupa Password</a>
+            {{-- <a href="forgot-password.html">Saya Lupa Password</a> --}}
           </p>
           <p class="mb-0">
             <a href="register.html" class="text-center">Daftar Anggota Baru</a>
