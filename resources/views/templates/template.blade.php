@@ -139,6 +139,9 @@
    }
   
 
+ 
+
+
 
   @media (max-width:768px){
     .mobile-nav-toggle{
@@ -164,6 +167,14 @@
    #carouselExampleIndicators {
      margin-top:35%;
    }
+/* 
+   #desktop-game{
+     display:none;
+   } */
+
+   /* #android-game{
+     display:block;
+   } */
 
     
 
@@ -207,7 +218,7 @@
 
 
 
-            <center>
+            {{-- <center> --}}
 
 
         <nav class="my-2 my-md-0 mr-md-3" id = "navbar">
@@ -250,7 +261,7 @@
        
         </nav>
 
-      </center>
+      {{-- </center> --}}
 
 
 

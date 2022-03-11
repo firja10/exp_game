@@ -1,5 +1,30 @@
 @extends('templates/template')
 
+@section('style')
+<style>
+    #desktop-game{
+     display:flex;
+   }
+
+   #android-game{
+     display:none;
+   }
+
+
+   @media (max-width:768px){ 
+    #android-game{
+     display:flex;
+   }
+
+   #desktop-game{
+     display:none;
+   }
+
+   }
+
+</style>
+@endsection
+
 @section('title')
 Selamat Datang di Exp Game
 @endsection
@@ -48,55 +73,116 @@ Selamat Datang di Exp Game
 
 
 
-        <center>
+
+
+
+
+
+
+<center>
 
  
-          <div class="row mt-4">
+<div class="row mt-4 justify-content-center" style = "text-align: center" id = "android-game">
 
+@foreach ($kategoris as $kateg)
+
+<center>
+
+  <div class="col-sm-2 mt-3 justify-content-center items-center">         
+    <div class="card" style="width: 10rem;">
+      <center>
+        <img class="card-img-top" src="{{asset('assets/img/mobile_games/'. $kateg->photo_kategori)}}" alt="Card image cap" style = "width:50%; margin-top:10%;">
+      </center>
+     
+      <div class="card-body">
+        <center>
+          <h5 class="card-title">{{$kateg->nama_kategori}}</h5>
+          <p class="card-text"></p>
+          <a href="{{route('Order', $kateg->id)}}" class="btn btn-primary beli">Buy</a>
+        </center>
+
+      </div>
+    </div>
     
+  </div>
+</center>
 
 
 
-
-         @foreach ($kategoris as $kateg)
-
-            <div class="col-md-2 mr-3 ml-3 mt-4">            
-                <div class="card" style="width: 12rem;">
-                  <center>
-                    <img class="card-img-top" src="{{asset('assets/img/mobile_games/'. $kateg->photo_kategori)}}" alt="Card image cap">
-                  </center>
-                 
-                  <div class="card-body">
-                    <center>
-                      <h5 class="card-title">{{$kateg->nama_kategori}}</h5>
-                      <p class="card-text"></p>
-                      <a href="{{route('Order', $kateg->id)}}" class="btn btn-primary beli">Buy</a>
-                    </center>
-       
-                  </div>
-                </div>
-              </div>
                 
-            @endforeach
-
-
-
-
-
-
-
-            
-
-
-
-
-
-
+ @endforeach
 
           </div>
 
+        </center> 
 
-        </center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <center>
+
+ 
+          <div class="row mt-4 justify-content-center" style = "text-align: center" id = "desktop-game">
+          
+          @foreach ($kategoris as $kateg)
+          
+          
+            <div class="col-sm-2 mt-3 justify-content-center items-center">         
+              <div class="card" style="width: 10rem;">
+                <center>
+                  <img class="card-img-top" src="{{asset('assets/img/mobile_games/'. $kateg->photo_kategori)}}" alt="Card image cap" style = "width:50%; margin-top:10%;">
+                </center>
+               
+                <div class="card-body">
+                  <center>
+                    <h5 class="card-title">{{$kateg->nama_kategori}}</h5>
+                    <p class="card-text"></p>
+                    <a href="{{route('Order', $kateg->id)}}" class="btn btn-primary beli">Buy</a>
+                  </center>
+          
+                </div>
+              </div>
+            </div>
+                              
+            
+           @endforeach
+          
+                    </div>
+          
+                  </center> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         </div>
