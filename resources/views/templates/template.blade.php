@@ -133,6 +133,10 @@
     display:none;
   }
 
+
+  #logo-desktop-dua{
+     display:none;
+   }
   
 
 
@@ -147,6 +151,18 @@
 
    #logo-mobile{
      display:block
+   }
+
+   #logo-desktop-dua{
+     display:block;
+   }
+
+   #logo-desktop{
+     display:none;
+   }
+
+   #carouselExampleIndicators {
+     margin-top:35%;
    }
 
     
@@ -179,11 +195,24 @@
 
 
             <center>
+              <h5 class="me-auto font-weight-normal" id = "logo-desktop-dua">
+                <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
+                Exp Game</h5>
+            </center>
+      
 
 
-        <nav class="my-2 my-md-0 mr-md-3 d-none d-md-block" id = "navbar">
-          <a class="p-2 text-white" href="{{url('/')}}"> <i class = "icon_header fa fa-home"></i> Home</a>
-          <a class="p-2 text-white" href="{{url('/cari_invoice')}}"> <i class = "icon_header fa fa-wpforms" ></i> Pesanan Anda</a>
+
+
+
+
+
+            <center>
+
+
+        <nav class="my-2 my-md-0 mr-md-3" id = "navbar">
+          <a class="p-2 text-white my-2" href="{{url('/')}}"> <i class = "icon_header fa fa-home"></i> Home</a>
+          <a class="p-2 text-white my-2" href="{{url('/cari_invoice')}}"> <i class = "icon_header fa fa-wpforms" ></i> Pesanan Anda</a>
           {{-- <a class="p-2 text-white" href="#">Support</a>
           <a class="p-2 text-white" href="#">Pricing</a> --}}
 
@@ -195,14 +224,14 @@
 
           @if(Auth::user()->is_admin == 1)
 
-          <a class="p-2 text-white" href="{{url('/admin/home')}}"> <i class = "icon_header fa fa-home"></i> Halaman Admin</a>
+          <a class="p-2 text-white my-2" href="{{url('/admin/home')}}"> <i class = "icon_header fa fa-home"></i> Halaman Admin</a>
               
           @endif
 
 
 
 
-          <a class = "btn btn-primary mr-2 ml-2" href="{{ route('logout') }}" id = "keluar"  onclick="event.preventDefault();
+          <a class = "btn btn-primary mr-2 ml-2 my-2" href="{{ route('logout') }}" id = "keluar"  onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">Logout</a>
               
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -213,7 +242,7 @@
 
           @else
 
-          <a class="btn btn-primary mr-2 ml-2" href="{{url('/login')}}"> <i class = "icon_header fa fa-sign-in"></i> Sign In Admin</a>
+          <a class="btn btn-primary mr-2 ml-2 my-2" href="{{url('/login')}}"> <i class = "icon_header fa fa-sign-in"></i> Sign In Admin</a>
           {{-- <a class="btn btn-outline-light mr-2 ml-2" href="{{url('/register')}}">Sign up</a> --}}
           @endif
 
@@ -225,19 +254,19 @@
 
 
 
-      <nav id = "navbar">
+      {{-- <nav id = "navbar">
 
         <ul style = "list-style: none;">
-          {{-- <li  style = "display:inline;float:left;"><h5 class=" font-weight-normal" id = "logo-mobile">
+          <li  style = "display:inline;float:left;"><h5 class=" font-weight-normal" id = "logo-mobile">
             <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
-            Exp Game</h5></li> --}}
+            Exp Game</h5></li>
           <li  style = "display:inline;float:right;">
           <button class="btn mobile-nav-toggle item-center">
             <i class = "fa fa-list "></i>
           </button></li>
         </ul>
 
-      </nav>
+      </nav> --}}
 
 
  
