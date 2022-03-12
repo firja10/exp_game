@@ -149,6 +149,8 @@
                                   @csrf
                                   @method('PATCH')
 
+                                  <input type="hidden" name="nomor_whatsapp" value = "{{$order->nomor_whatsapp}}">
+
                                   <button class = "btn btn-primary" type = "submit">Konfirmasi</button>
                                 </form>
                                 <br> <br>
@@ -156,6 +158,8 @@
                                 <form action="{{route('updateGagalinvoice', $order->id)}}" method = "POST" enctype="multipart/form-data" >
                                   @csrf
                                   @method('PATCH')
+
+                                 
 
                                 <button class = "btn btn-danger" type = "submit">Tolak</button>
                                 

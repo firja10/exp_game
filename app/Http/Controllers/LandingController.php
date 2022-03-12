@@ -7,6 +7,7 @@ use App\Models\Kategori;
 use App\Models\Nominal;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
+use Twilio\Rest\Client;
 
 class LandingController extends Controller
 {
@@ -80,6 +81,59 @@ class LandingController extends Controller
     //     return view('order.invoice_id',compact('orders'));
 
     // }
+
+
+    public function APIML()
+    {
+        # code...
+
+
+// $curl = curl_init();
+
+// curl_setopt_array($curl, [
+// 	CURLOPT_URL => "https://true-id-mobile-legends.p.rapidapi.com/razepedia.my.id/api/trueid_ml.php?userid=553832456&zoneid=8215",
+// 	CURLOPT_RETURNTRANSFER => true,
+// 	CURLOPT_FOLLOWLOCATION => true,
+// 	CURLOPT_ENCODING => "",
+// 	CURLOPT_MAXREDIRS => 10,
+// 	CURLOPT_TIMEOUT => 30,
+// 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+// 	CURLOPT_CUSTOMREQUEST => "GET",
+// 	CURLOPT_HTTPHEADER => [
+// 		"x-rapidapi-host: true-id-mobile-legends.p.rapidapi.com",
+// 		"x-rapidapi-key: 35b70b45d9msh545615deb616ff6p1e79f8jsnd9aa411b5471"
+// 	],
+// ]);
+
+// $response = curl_exec($curl);
+// $err = curl_error($curl);
+
+// curl_close($curl);
+
+// if ($err) {
+// 	echo "cURL Error #:" . $err;
+// } else {
+// 	echo $response;
+// }
+
+// $kumpulan = json_decode($response, true);
+
+
+// return view('coba_api', compact('kumpulan'));
+
+
+return view('coba_api');
+
+
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -163,11 +217,29 @@ class LandingController extends Controller
 
         $orders = Order::where('id', $id)->update([
             'status_order' =>2,
+            'nomor_whatsapp'=>$request['nomor_whatsapp'],
         ]);
+
+        // $this->whatsappNotif($orders['nomor_whatsapp']);
 
         return redirect('/admin/invoice')->with('success-update-konfirmasi-invoice','Data Invoice Sukses Dikonfirmasi');
 
 
+    }
+
+
+
+    private function whatsappNotif(string $recipient)
+    {
+        # code...
+        $id = getenv("TWILIO_AUTH_SID");
+        $token = getenv("TWILIO_AUTH_TOKEN");
+        $wa_from = getenv("TWILIO_WHATSAPP_FROM");
+        $twilio = new Client($id, $token);
+
+        $body = "Hallo, Test";
+
+        return $twilio->messages->create("whatsapp:$recipient",["from" => "whatsapp:$wa_from", "body" => $body]);
     }
 
 

@@ -15,7 +15,7 @@
 
 
   .gambar_bayar{
-    width:10%;
+    width:75px;
   }
 
 

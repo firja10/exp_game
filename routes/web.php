@@ -49,7 +49,7 @@ Route::get('/cari_invoice',[\App\Http\Controllers\LandingController::class,'penc
 Route::get('/searchinvoice', [\App\Http\Controllers\LandingController::class,'searchinvoice'])->name('searchinvoice');
 
 // Route::post('/searchinvoice/{id}', [\App\Http\Controllers\LandingController::class,'searchinvoice'])->name('searchinvoice');
-
+Route::get('/coba_api',[\App\Http\Controllers\LandingController::class,'APIML'])->name('APIML');
 
 
 
