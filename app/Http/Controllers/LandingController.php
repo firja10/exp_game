@@ -8,6 +8,7 @@ use App\Models\Nominal;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Twilio\Rest\Client;
+use App\Models\User;
 
 class LandingController extends Controller
 {
@@ -311,6 +312,47 @@ return view('coba_api');
     }
 
 
+
+    public function halaman_daftar_anggota_baru()
+    {
+        # code...
+
+        return view('anggota_baru');
+
+    }
+
+
+
+
+
+
+
+
+
+
+    public function daftaranggotabaru( Request $request )
+    {
+        # code...
+        User::create($request->all());
+        
+        return redirect('/daftar_anggota_baru')->with('anggota-baru','Success Add User Data');
+        
+    
+    }
+
+
+
+
+    public function updatestatusanggotabaru( Request $request, $id)
+    {
+        # code...
+       $users = User::where('id', $id)->update([
+            'is_admin'=>1,
+       ]);
+
+       return redirect('admin/user')->with('new-user','User baru telah ditambahkan');
+        
+    }
 
 
 

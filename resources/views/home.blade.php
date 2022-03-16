@@ -109,6 +109,34 @@ Selamat Datang di Exp Game
 
 
 
+
+
+
+
+
+<center>
+
+  <div class="col-sm-2 mt-3 justify-content-center items-center">         
+    <div class="card" style="width: 10rem;">
+      <center>
+        <img class="card-img-top" src="{{asset('assets/img/mobile_games/'. $kateg->photo_kategori)}}" alt="Card image cap" style = "width:50%; margin-top:10%;">
+      </center>
+     
+      <div class="card-body">
+        <center>
+          <h5 class="card-title">{{$kateg->nama_kategori}}</h5>
+          <p class="card-text"></p>
+          <a href="{{route('Order', $kateg->id)}}" class="btn btn-primary beli">Buy</a>
+        </center>
+
+      </div>
+    </div>
+    
+  </div>
+</center>
+
+
+
                 
  @endforeach
 
@@ -137,6 +165,25 @@ Selamat Datang di Exp Game
           @foreach ($kategoris as $kateg)
           
           
+            <div class="col-sm-2 mt-3 justify-content-center items-center">         
+              <div class="card" style="width: 10rem;">
+                <center>
+                  <img class="card-img-top" src="{{asset('assets/img/mobile_games/'. $kateg->photo_kategori)}}" alt="Card image cap" style = "width:50%; margin-top:10%;">
+                </center>
+               
+                <div class="card-body">
+                  <center>
+                    <h5 class="card-title">{{$kateg->nama_kategori}}</h5>
+                    <p class="card-text"></p>
+                    <a href="{{route('Order', $kateg->id)}}" class="btn btn-primary beli">Buy</a>
+                  </center>
+          
+                </div>
+              </div>
+            </div>
+
+
+
             <div class="col-sm-2 mt-3 justify-content-center items-center">         
               <div class="card" style="width: 10rem;">
                 <center>

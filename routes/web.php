@@ -53,6 +53,15 @@ Route::get('/coba_api',[\App\Http\Controllers\LandingController::class,'APIML'])
 
 
 
+
+Route::get('/daftar_member_baru',[\App\Http\Controllers\LandingController::class,'halaman_daftar_anggota_baru'])->name('halaman_daftar_anggota_baru');
+
+
+Route::post('/daftar_member_baru',[\App\Http\Controllers\LandingController::class,'daftaranggotabaru'])->name('daftaranggotabaru');
+
+
+
+
 // Route::post('/invoice',[\App\Http\Controllers\LandingController::class,'PostOrder'])->name('PostOrder');
 
 

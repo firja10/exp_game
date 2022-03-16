@@ -15,9 +15,22 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    
 
     <style>
+        #header{
+            background-color:#a4518cff;
+            color:#fff;
+            /* box-shadow:2px 2px 2px 2px black; */
+            border-bottom:none;
+            width:100%;
+            position:fixed;
+            z-index:100;
+            top:0;
+            padding-bottom:20px;
+            
+     
+        }
 
         body{
             background-color:#1e181aff;
@@ -109,31 +122,31 @@
   }
 
 
-  /* .mobile-nav-toggle{
+  .mobile-nav-toggle{
     cursor: pointer;
   display: none;
   }
-   */
+  
 
 
-  /* #logo-mobile{
+  #logo-mobile{
     display:none;
   }
- */
 
-  /* #logo-desktop-dua{
+
+  #logo-desktop-dua{
      display:none;
    }
-   */
+  
 
  
 
 
 
   @media (max-width:768px){
-    /* .mobile-nav-toggle{
+    .mobile-nav-toggle{
       display:block;
-    } */
+    }
 
     /* #logo-desktop{
       display:none;
@@ -152,7 +165,7 @@
    }
 
    #carouselExampleIndicators {
-     margin-top:15%;
+     margin-top:35%;
    }
 /* 
    #desktop-game{
@@ -180,46 +193,116 @@
   </head>
   <body>
 
-
-    <header id="header" class="fixed-top ">
-      <div class="container d-flex align-items-center">
-        <a href="index.html" class="logo me-auto"><img src="{{asset('img/logo_exp.png')}}" alt="" class="img-fluid"></a>
-        &nbsp;  &nbsp;
-        <h1 class="logo mr-auto">  <a href="index.html" >Exp Games</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-     
-  
-        <nav id="navbar" class="navbar ml-auto">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-5 shadow-sm" id = "header">
+      {{-- <div class="container d-flex align-items-center" id = "header"> --}}
 
 
-          <ul>
-            <li><a class="nav-link scrollto active" href="#hero"> <i class = "icon_header fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
-            <li><a class="nav-link scrollto" href="#about"><i class = "icon_header fa fa-wpforms" ></i>&nbsp;&nbsp;Pesanan Anda</a></li>
-           
-            <li><a class="nav-link scrollto" href="#contact"><i class = "icon_header fa fa-phone" ></i>&nbsp;&nbsp;Contact</a></li>
-            <li>
-            
-              <a class="getstarted scrollto" href="#about" style="align-content: center; text-align:center;"><i class = "icon_header fa fa-sign-in"></i>&nbsp;Sign In Admin</a>
-            
+      {{-- <center> --}}
+        {{-- <h5 class="my-0 mr-md-auto font-weight-normal" id = "logo-desktop"> --}}
+          <h5 class="mr-md-auto font-weight-normal" id = "logo-desktop">
+          <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
+          Exp Game</h5>
+      {{-- </center> --}}
+
+
+            <center>
+              <h5 class="me-auto font-weight-normal" id = "logo-desktop-dua">
+                <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
+                Exp Game</h5>
+            </center>
+      
+
+
+
+
+
+
+
+            <center>
+
+
+        <nav class="my-2 my-md-0 mr-md-3" id = "navbar">
+          <a class="p-2 text-white my-2" href="{{url('/')}}"> <i class = "icon_header fa fa-home"></i> Home</a>
+          <a class="p-2 text-white my-2" href="{{url('/cari_invoice')}}"> <i class = "icon_header fa fa-wpforms" ></i> Pesanan Anda</a>
+          {{-- <a class="p-2 text-white" href="#">Support</a>
+          <a class="p-2 text-white" href="#">Pricing</a> --}}
+
+
+          @if(Auth::check())
+
+
+
+
+          @if(Auth::user()->is_admin == 1)
+
+          <a class="p-2 text-white my-2" href="{{url('/admin/home')}}"> <i class = "icon_header fa fa-home"></i> Halaman Admin</a>
               
-            </li>
-          </ul>
-                      
+          @endif
 
-          <i class="fa fa-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-  
+
+
+
+          <a class = "btn btn-primary mr-2 ml-2 my-2" href="{{ route('logout') }}" id = "keluar"  onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Logout</a>
+              
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+          
+
+
+          @else
+
+          <a class="btn btn-primary mr-2 ml-2 my-2" href="{{url('/login')}}"> <i class = "icon_header fa fa-sign-in"></i> Sign In Admin</a>
+          {{-- <a class="btn btn-outline-light mr-2 ml-2" href="{{url('/register')}}">Sign up</a> --}}
+          @endif
+
+          
+       
+        </nav>
+
+      </center>
+
+
+
+      {{-- <nav id = "navbar">
+
+        <ul style = "list-style: none;">
+          <li  style = "display:inline;float:left;"><h5 class=" font-weight-normal" id = "logo-mobile">
+            <img src="{{asset('img/logo_exp.png')}}" alt="" id = "logo_exp">
+            Exp Game</h5></li>
+          <li  style = "display:inline;float:right;">
+          <button class="btn mobile-nav-toggle item-center">
+            <i class = "fa fa-list "></i>
+          </button></li>
+        </ul>
+
+      </nav> --}}
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+ 
+
+
       </div>
-    </header><!-- End Header -->
-
-
-
-
-
-
+  
+      <br>
+      <br>
       <br>
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-       
+        {{-- <h1 class="display-4">Pricing</h1>
+        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p> --}}
       </div>
 
       @yield('content')
@@ -324,7 +407,6 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{asset('js/main.js')}}"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
         <script src="../../assets/js/vendor/popper.min.js"></script>
