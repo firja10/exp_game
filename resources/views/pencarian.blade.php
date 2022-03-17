@@ -48,6 +48,15 @@ Pencarian Invoice
             <div class="table-responsive">
 
                <table id = "orderTable" class = "table">
+
+               
+                @if(!empty($msg_kosong))
+                <br>
+                <div class="alert alert-danger"> {{ $msg_kosong }}</div>
+                @endif
+
+
+
                    <?php 
                     
                     if(is_array($orders) || is_object($orders))

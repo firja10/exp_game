@@ -304,20 +304,29 @@ return view('coba_api');
         $searchinvoice = $request->post('searchinvoice');
         // $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->get();
 
-        if($searchinvoice == '' || $searchinvoice = ' ' )
+        $data_sesuai = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->get();
+
+        if($searchinvoice == '' || $searchinvoice = ' ' || !$data_sesuai )
         {
             $orders = '';
+            return view('pencarian', ['orders'=>$orders])->with('msg_kosong','Data Yang Anda Cari Tidak Ditemukan');
+            // return redirect('searchinvoice');
+
         }
 
         else {
             $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->paginate(3);
+            return view('pencarian', ['orders'=>$orders]);
+
         }
 
   
 
 
         // $pembelis = Pembeli::findOrFail($id);
-        return view('pencarian', ['orders'=>$orders]);
+
+        // return view('pencarian', ['orders'=>$orders]);
+
         // return redirect('/daftar_invoice/'.$id);
     }
 
