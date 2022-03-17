@@ -11,7 +11,7 @@ Pencarian Invoice
 
 @section('content')
 
-<section class="hero">
+<section class="cari_invoice">
 
     <div class="content">
         <div class="container-fluid">

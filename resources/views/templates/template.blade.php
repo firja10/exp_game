@@ -41,6 +41,13 @@
           margin-top:15px;
         }
 
+        .cari_invoice {
+          margin-left:10%;
+          margin-right:10%;
+          margin-bottom:15px;
+          margin-top:100px;
+        }
+
         .daftar-layanan{
           margin-top:10%;
           margin-bottom:5%;
@@ -163,6 +170,11 @@
      display:block;
    } */
 
+
+   #td-1{
+     display:none;
+   }
+
     
 
   }
@@ -193,16 +205,47 @@
 
 
           <ul>
-            <li><a class="nav-link scrollto active" href="#hero"> <i class = "icon_header fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
-            <li><a class="nav-link scrollto" href="#about"><i class = "icon_header fa fa-wpforms" ></i>&nbsp;&nbsp;Pesanan Anda</a></li>
+            <li><a class="nav-link scrollto active" href="{{url('/')}}"> <i class = "icon_header fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
+            <li><a class="nav-link scrollto" href="{{url('/cari_invoice')}}"><i class = "icon_header fa fa-wpforms" ></i>&nbsp;&nbsp;Pesanan Anda</a></li>
            
             <li><a class="nav-link scrollto" href="#contact"><i class = "icon_header fa fa-phone" ></i>&nbsp;&nbsp;Contact</a></li>
+          
+            @if (Auth::check())
+
+              @if (Auth::user()->is_admin == 1)
+
+              <li><a class="nav-link scrollto" href="{{url('/admin/home')}}"><i class = "icon_header fa fa-tachometer" ></i>&nbsp;&nbsp;Halaman Admin</a></li>
+
+                  
+              <li>
+                <a class="getstarted scrollto" href="{{ route('logout') }}" style="align-content: center; text-align:center;"  id = "keluar"  onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"><i class = "icon_header fa fa-sign-out"></i>&nbsp;Logout</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+
+              </li>
+
+
+              @else
+                  
+              @endif
+
+                
+            @else
+
+
             <li>
-            
-              <a class="getstarted scrollto" href="#about" style="align-content: center; text-align:center;"><i class = "icon_header fa fa-sign-in"></i>&nbsp;Sign In Admin</a>
-            
-              
+              <a class="getstarted scrollto" href="{{url('/admin/home')}}" style="align-content: center; text-align:center;"><i class = "icon_header fa fa-sign-in"></i>&nbsp;Sign In Admin</a>
             </li>
+
+                
+            @endif
+
+
+        
+
           </ul>
                       
 
