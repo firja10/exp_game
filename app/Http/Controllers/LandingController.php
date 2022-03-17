@@ -306,9 +306,10 @@ return view('coba_api');
 
         $data_sesuai = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->get();
 
-        if($searchinvoice == '' || $searchinvoice = ' ' || !$data_sesuai )
+        if($searchinvoice == '')
         {
             $orders = '';
+            $pesan = 'Data Yang Anda Cari Tidak Ditemukan';
             return view('pencarian', ['orders'=>$orders])->with('msg_kosong','Data Yang Anda Cari Tidak Ditemukan');
             // return redirect('searchinvoice');
 
@@ -320,7 +321,7 @@ return view('coba_api');
 
         }
 
-  
+
 
 
         // $pembelis = Pembeli::findOrFail($id);
