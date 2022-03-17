@@ -48,6 +48,11 @@ Pencarian Invoice
             <div class="table-responsive">
 
                <table id = "orderTable" class = "table">
+                   <?php 
+                    
+                    if(is_array($orders) || is_object($orders))
+                    {
+                    ?>
 
                     @foreach ($orders as $order)
 
@@ -58,11 +63,15 @@ Pencarian Invoice
                     $kategoris = DB::table('kategoris')->where('nama_kategori',$order->nama_game)->get();
                   $nominals = DB::table('nominals')->where('id', $order->nominal)->get();
     
-                  foreach ($kategoris as $kateg) {
+                  if(is_array($kategoris) || is_object($kategoris))
+                  {
+                    foreach ($kategoris as $kateg) {
                       # code...
                       $gambar_kateg = $kateg->photo_kategori;
                   }
     
+                  }
+ 
                     
                     ?>
     
@@ -130,7 +139,7 @@ Pencarian Invoice
                             </tr>
 
                     @endforeach
-
+                    <?php } ?>
 
                 </table>
             </div>

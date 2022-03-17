@@ -303,7 +303,17 @@ return view('coba_api');
         # code...
         $searchinvoice = $request->post('searchinvoice');
         // $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->get();
-        $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->paginate(3);
+
+        if($searchinvoice == '' || $searchinvoice = ' ' )
+        {
+            $orders = '';
+        }
+
+        else {
+            $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->paginate(3);
+        }
+
+  
 
 
         // $pembelis = Pembeli::findOrFail($id);

@@ -37,18 +37,16 @@ Selamat Datang di Exp Game
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="{{asset('assets/img/hero-carousel/hero-1.webp')}}" alt="First slide">
+              <img class="d-block w-100" src="{{asset('poster/poster_1.png')}}" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="{{asset('assets/img/hero-carousel/hero-2.webp')}}" alt="Second slide">
+              <img class="d-block w-100" src="{{asset('poster/poster_2.png')}}" alt="Second slide">
             </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="{{asset('assets/img/hero-carousel/hero-1.webp')}}" alt="Third slide">
-            </div>
+
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
