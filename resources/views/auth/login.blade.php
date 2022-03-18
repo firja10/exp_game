@@ -47,7 +47,22 @@
   <!-- /.login-logo -->
   <div class="card login_card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Silakan Lakukan Sign In / Log In</p>
+      <p class="login-box-msg">Silakan Lakukan Admin Melakukan Sign In / Log In</p>
+
+
+      @if($message = Session::get('error'))
+      <br>
+      <div class="alert alert-danger"> {{ $message }}</div>
+      @endif
+
+
+
+      @if($message = Session::get('failed'))
+      <br>
+      <div class="alert alert-danger"> {{ $message }}</div>
+      @endif
+
+
 
       <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -97,7 +112,7 @@
             {{-- <a href="forgot-password.html">Saya Lupa Password</a> --}}
           </p>
           <p class="mb-0">
-            <a href="register.html" class="text-center">Daftar Anggota Baru</a>
+            <a href="{{url('/daftar_member_baru')}}" class="text-center">Daftar Anggota Baru</a>
           </p>
 
       </center>

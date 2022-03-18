@@ -23,6 +23,9 @@ class isAdmin
             return $next($request);
 
         }
-            return redirect('login')->with('failed', 'Anda Tidak Punya Wewenang Sebagai Admin');
+        // else {
+        //     return redirect('login')->with('failed', 'Anda Tidak Punya Wewenang Sebagai Admin');
+        // }
+            return redirect('login');
     }
 }

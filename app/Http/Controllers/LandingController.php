@@ -9,6 +9,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Twilio\Rest\Client;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LandingController extends Controller
 {
@@ -386,9 +387,22 @@ return view('coba_api');
     public function daftaranggotabaru( Request $request )
     {
         # code...
-        User::create($request->all());
+        $user = new User();
+        $user['name'] = $request->name;
+        $user['email'] = $request->email;
+        $user['password'] = Hash::make($request->password);
+        $user['komitmen'] = $request->komitmen;
+        $user['phone'] = $request->phone;
+        $user['is_admin'] = 0;
+        $user['salin_komitmen'] = $request->salin_komitmen;
+        $user['nomor_telepon'] = $request->nomor_telepon;
+        $user['nomor_whatsapp'] = $request->nomor_whatsapp;
+        $user['alamat_rumah'] = $request->alamat_rumah;
+        $user->save();
         
-        return redirect('/daftar_anggota_baru')->with('anggota-baru','Success Add User Data');
+        // User::create($request->all());
+        
+        return redirect('/daftar_member_baru')->with('anggota_baru','Data Telah Ditambahkan, Silakan Tunggu Konfirmasi dari Admin Via Whatsapp');
         
     
     }

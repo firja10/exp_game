@@ -49,7 +49,14 @@
   <!-- /.login-logo -->
   <div class="card login_card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Silakan Lakukan Pendaftaran</p>
+
+
+      @if($message = Session::get('anggota_baru'))
+      <br>
+      <div class="alert alert-success"> {{ $message }}</div>
+      @endif
+
+      <p class="login-box-msg">Silakan Lakukan Pendaftaran Anggota Baru</p>
 
       <form method="POST" action="{{ route('daftaranggotabaru') }}">
         @csrf
@@ -89,6 +96,28 @@
             </div>
           </div>
         </div>
+
+                
+        <div class="input-group mb-3">
+          <input type="number" class="form-control" placeholder="Nomor Whatsapp" name = "nomor_whatsapp">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-phone"></span>
+            </div>
+          </div>
+        </div>
+        
+
+
+        <div class="input-group mb-3">
+          <input type="number" class="form-control" placeholder="Nomor Whatsapp" name = "nomor_whatsapp">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-phone"></span>
+            </div>
+          </div>
+        </div>
+        
         
 
 

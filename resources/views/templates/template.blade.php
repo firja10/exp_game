@@ -231,6 +231,17 @@
 
 
               @else
+
+              <li>
+                <a class="getstarted scrollto" href="{{ route('logout') }}" style="align-content: center; text-align:center;"  id = "keluar"  onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"><i class = "icon_header fa fa-sign-out"></i>&nbsp;Logout</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+
+              </li>
+
                   
               @endif
 
