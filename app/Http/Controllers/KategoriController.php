@@ -47,7 +47,7 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         //
-        Kategori::create($request->all());
+        // Kategori::create($request->all());
 
 
 

@@ -86,7 +86,7 @@ Selamat Datang di Exp Game
 
 <center>
 
-  <div class="col-sm-2 mt-3 justify-content-center items-center">         
+  <div class="col-sm-2 mt-3 justify-content-center items-center d-flex align-items-stretch">         
     <div class="card" style="width: 10rem;">
       <center>
         <img class="card-img-top" src="{{asset('assets/img/mobile_games/'. $kateg->photo_kategori)}}" alt="Card image cap" style = "width:50%; margin-top:10%;">
@@ -134,7 +134,7 @@ Selamat Datang di Exp Game
           @foreach ($kategoris as $kateg)
           
           
-            <div class="col-sm-2 mt-3 justify-content-center items-center">         
+            <div class="col-sm-2 mt-3 justify-content-center items-center d-flex align-items-stretch">         
               <div class="card" style="width: 10rem;">
                 <center>
                   <img class="card-img-top" src="{{asset('assets/img/mobile_games/'. $kateg->photo_kategori)}}" alt="Card image cap" style = "width:50%; margin-top:10%;">
