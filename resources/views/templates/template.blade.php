@@ -196,7 +196,7 @@
     <header id="header" class="fixed-top ">
       <div class="container d-flex align-items-center">
 
-        <a href="index.html" class="logo me-auto"><img src="{{asset('img/logo_exp_2.png')}}" alt=""></a>
+        <a href="{{url('/')}}" class="logo me-auto"><img src="{{asset('img/logo_exp_2.png')}}" alt=""></a>
         {{-- <a href="index.html" class="logo me-auto"><img src="{{asset('img/logo_exp.png')}}" alt="" class="img-fluid"></a>
         &nbsp;  &nbsp;
         <h1 class="logo mr-auto">  <a href="index.html" >Exp Games</a></h1> --}}
