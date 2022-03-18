@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Log In | Exp Games</title>
+  <title>Register Member | Exp Games</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -55,6 +55,15 @@
         @csrf
         
         <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Full name" name = "name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name = "email">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -72,13 +81,22 @@
           </div>
         </div>
 
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Retype password" name = "password_confirmation">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        
 
 
 
         <div class="row">
         
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+            <button type="submit" class="btn btn-primary btn-block">Daftar Anggota Baru</button>
           </div>
           <!-- /.col -->
         </div>
@@ -104,9 +122,9 @@
         <p class="mb-1">
             {{-- <a href="forgot-password.html">Saya Lupa Password</a> --}}
           </p>
-          <p class="mb-0">
+          {{-- <p class="mb-0">
             <a href="register.html" class="text-center">Daftar Anggota Baru</a>
-          </p>
+          </p> --}}
 
       </center>
 
