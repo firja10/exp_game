@@ -19,20 +19,12 @@
   }
 
 
-
-
-
-
-
-  .container {
+  
+  #container {
   max-width: 900px;
   margin: 0 auto;
 }
 
-
-/**
-  Component
-**/
 
 .card_order {
     width: 100%;
