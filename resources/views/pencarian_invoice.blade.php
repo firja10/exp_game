@@ -23,7 +23,7 @@ Pencarian Invoice
                  
                     <form action="/searchinvoice" method = "GET">
                         @csrf
-                        <input type="text" class = "form-control" placeholder = "Silakan Cari Invoice Anda" name = "searchinvoice">
+                        <input type="text" class = "form-control" placeholder = "Silakan Masukkan Kode Invoice Anda" name = "searchinvoice">
                       <br>
                       <center>
                         <button class = "btn btn-primary" > Cari Invoice</button>

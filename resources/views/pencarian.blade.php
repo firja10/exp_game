@@ -14,12 +14,23 @@ Pencarian Invoice
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
+
+                    <?php 
+
+                                    // var_dump($orders_invoice);
+
+                                
+
+                                    // echo $orders_invoice['']
+                        
+                        ?>
+
                     <center>
 
                  
                     <form action="/searchinvoice" method = "GET">
                         @csrf
-                        <input type="text" class = "form-control" placeholder = "Silakan Cari Invoice Anda" name = "searchinvoice">
+                        <input type="text" class = "form-control" placeholder = "Silakan Masukkan Kode Invoice Anda" name = "searchinvoice">
                       <br>
                       <center>
                         <button class = "btn btn-primary" > Cari Invoice</button>

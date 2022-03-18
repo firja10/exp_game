@@ -302,11 +302,29 @@ return view('coba_api');
     {
         # code...
         $searchinvoice = $request->post('searchinvoice');
-        // $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->get();
+        $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->get();
 
-        $data_sesuai = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->get();
+        $orderarray = (array) $orders;
 
-        if($searchinvoice == '')
+        foreach ($orders as $item) {
+            # code...
+            $invoice_code = $item->invoice_code;
+        }
+
+
+
+        // $id_user = $orderarray['id_user'];
+
+
+
+        // $orders_invoice = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->get();
+
+
+        // $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->paginate(3);
+
+    
+
+        if($searchinvoice == '' || empty($orders))
         {
             $orders = '';
             $pesan = 'Data Yang Anda Cari Tidak Ditemukan';
@@ -315,11 +333,26 @@ return view('coba_api');
 
         }
 
-        else {
-            $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->paginate(3);
-            return view('pencarian', ['orders'=>$orders]);
+        elseif($orders->count() == 0)
+        {
+
+            return view('pencarian', ['orders'=>$orders])->with('msg_kosong','Data Yang Anda Cari Tidak Ditemukan');
+
+
+        }        
+
+
+        // elseif(!empty($orders) || $searchinvoice == $orders)
+        else
+        {
+            // $orders = DB::table('orders')->where('invoice_code','like',"%".$searchinvoice."%")->paginate(3);
+
+            $orders_invoice = (array) $orders;
+
+            return view('pencarian', ['orders'=>$orders,'orders_invoice'=>$orders_invoice]);
 
         }
+
 
 
 
