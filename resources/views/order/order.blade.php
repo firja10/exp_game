@@ -681,7 +681,7 @@ Order {{$kategori->nama_kategori}}
                 <br>
                     <div class="form-group">
                       <label for="nomor_whatsapp">Silakan Isi Nomor Whatsapp Anda </label>
-                      <input type="number"  class="form-control" id="nomor_whatsapp" name = "nomor_whatsapp" placeholder = "08xxx">
+                      <input type="number"  class="form-control" id="nomor_whatsapp" name = "nomor_whatsapp" placeholder = "628xxxxxxxxx">
                     </div>
             </div>
           </div>

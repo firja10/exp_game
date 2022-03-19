@@ -431,6 +431,7 @@ return view('coba_api');
         # code...
 
         $users = User::all();
+        // $users = User::paginate(5);
         
         return view('admin.user.daftar_user', compact('users'));
 
