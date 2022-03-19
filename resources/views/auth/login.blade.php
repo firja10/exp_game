@@ -52,14 +52,20 @@
 
       @if($message = Session::get('error'))
       <br>
-      <div class="alert alert-danger"> {{ $message }}</div>
+      <div class="alert alert-danger" style = "text-align: center"> {{ $message }}</div>
       @endif
 
 
 
       @if($message = Session::get('failed'))
       <br>
-      <div class="alert alert-danger"> {{ $message }}</div>
+      <div class="alert alert-danger" style = "text-align: center"> {{ $message }}</div>
+      @endif
+
+
+      @if($message = Session::get('error_admin'))
+      <br>
+      <div class="alert alert-danger" style = "text-align: center"> {{ $message }}</div>
       @endif
 
 

@@ -39,11 +39,6 @@
     <h2 class = "judul_logo"> <b>Exp</b> Games </h2>
   </div>
 
-
-  
-
-
-
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>

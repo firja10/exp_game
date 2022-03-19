@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -56,7 +57,8 @@ class LoginController extends Controller
             if (auth()->user()->is_admin == 1 && auth()->user()->email_verified_at != NULL) {
                 return redirect('admin/home');
             }else{
-                return redirect('login')->with('error_admin','Maaf Anda Bukan Admin');
+                Auth::logout();
+                return redirect('login')->with('error_admin','Maaf Anda Bukan Admin, Silakan Tunggu Verifikasi Jika Sudah Mendaftar');
             }
         }else{
             return redirect('login')
