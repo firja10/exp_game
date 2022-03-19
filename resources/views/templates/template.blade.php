@@ -133,7 +133,10 @@
    }
    */
 
- 
+   #gambar_kategori_desktop{
+     display:none;
+
+   }
 
 
 
@@ -173,6 +176,11 @@
 
    #td-1{
      display:none;
+   }
+
+   #gambar_kategori_desktop{
+     display:block;
+     width:100px;
    }
 
     

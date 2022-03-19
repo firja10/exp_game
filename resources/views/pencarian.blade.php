@@ -105,11 +105,15 @@ Pencarian Invoice
                                 <td id = "td-1"><img src="{{asset('assets/img/mobile_games/'. $gambar_kateg)}}" alt="" style = "width:60%; padding-top:20px;padding-bottom:20px;"></td>
                                 <td>
                                     <center>
+                                        
+                                        <img src="{{asset('assets/img/mobile_games/'. $gambar_kateg)}}" alt="" id = "gambar_kategori_desktop">
+                                        <br>
                                         <h5 class="m-0 mt-2">{{$order->nama_game}}</h5>
                                     
                                         <span>{{$order->invoice_code}}</span>
                                         <br>
                                         <span>{{$order->metode_bayar}}</span> 
+                                        <br>
                                         <br>
 
 
