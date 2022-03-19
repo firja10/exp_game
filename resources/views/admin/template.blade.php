@@ -15,6 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('admin_lte/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('admin_lte/dist/css/adminlte.min.css')}}">
+  <link rel="shortcut icon" href="{{asset('img/logo_exp.png')}}" type="image/x-icon">
 
   @yield('style')
 
@@ -187,6 +188,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <i class="fa fa-cart-plus nav-icon"></i>
                 <p>
                  Daftar Invoice
+                </p>
+              </a>
+          </li>     
+
+
+
+          <li class="nav-item">
+            <a href="{{url('admin/user')}}" class="nav-link" id = "daftar_user">
+              <i class="fa fa-user-circle nav-icon"></i>
+                <p>
+                 Daftar User
                 </p>
               </a>
           </li>     

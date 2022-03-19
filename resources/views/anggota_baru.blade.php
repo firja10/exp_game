@@ -39,6 +39,7 @@
     background: #a4518cff;
     margin-top: 3%;
     padding: 3%;
+    border-radius:25px;
 }
 .register-left{
     text-align: center;

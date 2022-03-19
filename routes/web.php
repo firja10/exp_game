@@ -96,5 +96,7 @@ Auth::routes(['verify' => true]);
 Route::get('/admin/home',[\App\Http\Controllers\LandingController::class,'adminHome'])->name('adminHome')->middleware('is_admin');
 Route::resource('/admin/kategori',\App\Http\Controllers\KategoriController::class)->middleware('is_admin');
 Route::resource('/admin/nominal',\App\Http\Controllers\NominalController::class)->middleware('is_admin');
+Route::get('/admin/user',[\App\Http\Controllers\LandingController::class,'adminUser'])->name('adminUser')->middleware('is_admin');
+Route::post('/admin/user/{id}',[\App\Http\Controllers\LandingController::class,'SendWhatsApp'])->name('SendWhatsApp')->middleware('is_admin');
 
 Route::resource('/invoice',\App\Http\Controllers\OrderController::class)->middleware('is_admin');

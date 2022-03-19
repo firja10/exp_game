@@ -426,6 +426,85 @@ return view('coba_api');
 
 
 
+    public function adminUser()
+    {
+        # code...
+
+        $users = User::all();
+        
+        return view('admin.user.daftar_user', compact('users'));
+
+
+    }
+
+
+
+
+
+
+
+    public function SendWhatsApp(Request $request, $id)
+    {
+        # code...
+
+        // if(isset($_POST))
+        // {
+        // }
+
+        // $requestkonfirm = $request->post('konfirmasi');
+
+        // if($requestkonfirm)
+        // {
+
+
+
+        //     $users = User::findorFail($id);
+
+        //     $name = $users['name'];
+        //     $alamat = $users['alamat_rumah'];
+        //     $nomor_whatsapp = $users['nomor_whatsapp'];
+            
+        //     header("location:https://api.whatsapp.com/send?phone=$nomor_whatsapp&text=Nama:%20$name");
+
+
+
+
+            
+        // }
+
+        // else {
+        //     echo "<script>
+        //         window.location=history.go(-1);
+        //     </script>";
+        // }
+
+
+
+        $users = User::findorFail($id);
+
+        // $name = $users['name'];
+        // $alamat = $users['alamat_rumah'];
+        // $nomor_whatsapp = $users['nomor_whatsapp'];
+
+        $name = $users->name;
+        $alamat = $users->alamat_rumah;
+        $nomor_whatsapp = $users->nomor_whatsapp;
+        
+        // header("location:https://api.whatsapp.com/send?phone=$nomor_whatsapp&text=Nama:%20$name");
+        return redirect()->to('https://api.whatsapp.com/send?phone='.$nomor_whatsapp.'&text=Nama:%20'.$name);
+        
+
+
+
+
+    }
+
+
+
+
+
+
+
 
 
 
