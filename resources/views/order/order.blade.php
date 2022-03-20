@@ -70,7 +70,7 @@ Order {{$kategori->nama_kategori}}
  <div class="content">
     <div class="container-fluid">
 
-      <form class="form" method = "post" enctype="multipart/form-data" action = "{{route('invoice.store')}}" >
+      <form class="form" method = "post" enctype="multipart/form-data" action = "{{route('tambahInvoice')}}" >
         @csrf
 
 

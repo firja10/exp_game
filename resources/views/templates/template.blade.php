@@ -215,7 +215,7 @@
 
 
           <ul>
-            <li><a class="nav-link scrollto active" href="{{url('/')}}"> <i class = "icon_header fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
+            <li><a class="nav-link scrollto" href="{{url('/')}}"> <i class = "icon_header fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
             <li><a class="nav-link scrollto" href="{{url('/cari_invoice')}}"><i class = "icon_header fa fa-wpforms" ></i>&nbsp;&nbsp;Pesanan Anda</a></li>
            
             <li><a class="nav-link scrollto" href="#contact"><i class = "icon_header fa fa-phone" ></i>&nbsp;&nbsp;Contact</a></li>

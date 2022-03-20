@@ -511,6 +511,78 @@ return view('coba_api');
 
 
 
+    public function tambahInvoice(Request $request)
+    {
+        //
+
+        // Order::create($request->all());
+
+   
+
+        $terakhir = DB::table('orders')->latest('id')->first();
+        $array_akhir = (array) $terakhir;
+        $id_previous = (int) $array_akhir['id'] ;
+        $last_id = $id_previous + 1;
+
+
+
+        $orders = new Order() ;
+        $orders['id_user'] = $request->id_user;
+        $orders['id_server'] = $request->id_server;
+        $orders['nominal'] = $request->nominal;
+        $orders['promo_code'] = $request->promo_code; 
+        $orders['metode_bayar'] = $request->metode_bayar; 
+        $orders['status_order'] = $request->status_order;
+        $orders['nomor_whatsapp'] = $request->nomor_whatsapp;
+        $orders['harga_order'] = $request->harga_order;
+        $orders['user_id'] = $request->user_id;
+        $orders['produk_id'] = $request->produk_id;
+        $orders['bukti_bayar'] = $request->bukti_bayar; 
+
+        $waktu = date("Ymd");
+
+        $orders['invoice_code'] = $waktu . $last_id;
+        
+
+
+        // $orders['invoice_code'] = $request->invoice_code; 
+        $orders['nama_game'] = $request->nama_game;
+        
+        $orders->save();
+
+        $ordersId = $orders['id'];
+
+
+
+
+        // $orderscount = DB::table('orders')->count();
+        // $ordersid = DB::table('orders')->where('id',$orderscount);
+        return redirect('/daftar_invoice/'.$ordersId)->with('success-pesan','Anda Telah Melakukan Pemesanan, Silakan Lakukan Pembayaran');
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -38,6 +38,8 @@ Route::get('/',[\App\Http\Controllers\LandingController::class,'LandingHome'])->
 Route::get('/home',[\App\Http\Controllers\LandingController::class,'Landing'])->name('Landing');
 
 Route::get('/order/{id}',[\App\Http\Controllers\LandingController::class,'Order'])->name('Order');
+Route::post('/order',[\App\Http\Controllers\LandingController::class,'tambahInvoice'])->name('tambahInvoice');
+
 
 // Route::get('/invoice/{invoice_code}',[\App\Http\Controllers\LandingController::class,'Invoice'])->name('Invoice');
 Route::get('/daftar_invoice',[\App\Http\Controllers\LandingController::class,'ListInvoice'])->name('ListInvoice');
