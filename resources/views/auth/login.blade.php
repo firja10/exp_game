@@ -47,7 +47,7 @@
   <!-- /.login-logo -->
   <div class="card login_card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Silakan Lakukan Admin Melakukan Sign In / Log In</p>
+      <p class="login-box-msg">Silakan Masuk ke Halaman Admin / Member Dengan Melakukan Sign In</p>
 
 
       @if($message = Session::get('error'))
@@ -118,7 +118,7 @@
             {{-- <a href="forgot-password.html">Saya Lupa Password</a> --}}
           </p>
           <p class="mb-0">
-            <a href="{{url('/daftar_member_baru')}}" class="text-center">Daftar Anggota Baru</a>
+            <a href="{{url('/daftar_member_baru')}}" class="text-center">Daftar Member / Admin Baru</a>
           </p>
 
       </center>

@@ -74,6 +74,15 @@ Order {{$kategori->nama_kategori}}
         @csrf
 
 
+
+      @if (Auth::check() && (Auth::user()->is_admin == 1 || Auth::user()->is_member == 1))
+          
+      <input type="hidden" value ="{{Auth::user()->id}}" name= "user_id">
+          
+      @endif
+        
+
+
       <div class="row">
         <div class="col-lg-6">
           <div class="card card-primary card-outline">

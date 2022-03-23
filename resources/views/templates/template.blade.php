@@ -238,6 +238,20 @@
               </li>
 
 
+              @elseif(Auth::user()->is_member == 1)
+              <li><a class="nav-link scrollto" href="{{url('/member/home')}}"><i class = "icon_header fa fa-tachometer" ></i>&nbsp;&nbsp;Halaman Member</a></li>
+
+                  
+              <li>
+                <a class="getstarted scrollto" href="{{ route('logout') }}" style="align-content: center; text-align:center;"  id = "keluar"  onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"><i class = "icon_header fa fa-sign-out"></i>&nbsp;Logout</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+
+              </li>
+
               @else
 
               <li>

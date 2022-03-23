@@ -111,3 +111,5 @@ Route::resource('/invoice',\App\Http\Controllers\OrderController::class)->middle
 // Halaman Member
 Route::get('/member/home',[\App\Http\Controllers\LandingController::class,'MemberHome'])->name('MemberHome')->middleware('is_member');
 Route::get('/member/profile',[\App\Http\Controllers\LandingController::class,'MemberProfile'])->name('MemberProfile')->middleware('is_member');
+
+Route::delete('/member/profile/{id}',[\App\Http\Controllers\LandingController::class,'deleteinvoiceMember'])->name('deleteinvoiceMember')->middleware('is_member');

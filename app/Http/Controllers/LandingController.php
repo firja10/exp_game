@@ -595,6 +595,20 @@ return view('coba_api');
 
 
 
+    public function deleteinvoiceMember($id, Order $orders)
+    {
+        # code...
+
+        $orders = Order::findOrFail($id);
+        $orders->delete();
+        return redirect('/member/profile')->with('msgdeleteinvoicemember', 'Data Invoice Member Telah Dihapus'); 
+
+
+
+    }
+
+
+
 
 
 

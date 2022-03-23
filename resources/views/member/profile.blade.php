@@ -1,7 +1,7 @@
 @extends('member.template')
 
 @section('title')
-    Profile
+    Profile {{Auth::user()->name}}
 @endsection
 
 @section('style')
@@ -102,7 +102,7 @@
                          elseif($order->status_order == 0)
                          {
                          ?>
-                          <button class = "btn btn-warning" type = "button">Belum Upload Bukti</button>
+                          <a href = "{{url('/daftar_invoice/'.$order->id)}}" class = "btn btn-warning" type = "button">Belum Upload Bukti</a>
 
                          <?php }
                          elseif($order->status_order == 2)
@@ -111,7 +111,7 @@
                          
                          ?>
 
-                         <button class = "btn btn-success" type = "button">Sudah dikonfirmasi</button>
+                         <a href = "{{url('/daftar_invoice/'.$order->id)}}" class = "btn btn-success" type = "button">Sudah dikonfirmasi</a>
 
                      
                          <?php }
@@ -132,43 +132,32 @@
                      </td>
                      <td>
 
-                         
+                      <?php 
+                        if($order->status_order == 0 || $order->status_order == 3)
+                        {
+                        ?>
 
-                         <?php 
-                         if($order->status_order == 1)
-                         {
-                         ?>
+                      <form action="{{route('deleteinvoiceMember', $order->id)}}" method = "POST">
+                        @csrf 
+                        @method('DELETE')
 
-                         <form action="{{route('updatekonfirmasiinvoice', $order->id)}}" method = "POST" enctype="multipart/form-data" >
-                           @csrf
-                           @method('PATCH')
+                        <button class = "btn btn-danger">Batalkan Order</button>
+                      </form>
+                      
 
-                           <input type="hidden" name="nomor_whatsapp" value = "{{$order->nomor_whatsapp}}">
+                      <?php
+                        } elseif($order->status_order == 2)
+                        {
+                      ?>
 
-                           <button class = "btn btn-primary" type = "submit">Konfirmasi</button>
-                         </form>
-                         <br> <br>
+                            <form action="{{route('deleteinvoiceMember', $order->id)}}" method = "POST">
+                              @csrf 
+                              @method('DELETE')
 
-                         <form action="{{route('updateGagalinvoice', $order->id)}}" method = "POST" enctype="multipart/form-data" >
-                           @csrf
-                           @method('PATCH')
-
-                          
-
-                         <button class = "btn btn-danger" type = "submit">Tolak</button>
-                         
-                         </form>
-
-                         <?php }
-                         elseif($order->status_order == 0 || $order->status_order == 2 || $order->status_order == 3)
-                         {
-                         ?>
-                      <button class = "btn btn-primary" disabled>Konfirmasi</button>
-                      <br> <br>
-                      <button class = "btn btn-danger" disabled>Tolak</button>
+                              <button class = "btn btn-danger">Hapus Order</button>
+                            </form>
 
                       <?php } ?>
-
 
                      </td>
 
