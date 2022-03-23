@@ -9,6 +9,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Twilio\Rest\Client;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class LandingController extends Controller
@@ -564,6 +565,67 @@ return view('coba_api');
     }
 
 
+
+
+
+
+    // Halaman Member 
+
+    public function MemberHome()
+    {
+        # code...
+
+        return view('member.home');
+    }
+
+
+
+  public function MemberProfile()
+    {
+        # code...
+
+        $ordersbaru = new Order;
+
+        $user_id = Auth::user()->id;
+
+        $orders = $ordersbaru->where('user_id', $user_id)->get();
+
+        return view('member.profile', compact('orders'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Halaman Reseller
+
+    public function ResellerHome()
+    {
+        # code...
+
+        return view('reseller.home');
+    }
+
+
+
+    public function ResellerProfile()
+    {
+        # code...
+
+        return view('member.profile');
+    }
 
 
 

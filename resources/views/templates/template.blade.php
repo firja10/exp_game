@@ -258,12 +258,12 @@
 
   
             <li>
-              <a class="getstarted scrollto" href="{{url('/admin/home')}}" style="align-content: center; text-align:center;"><i class = "icon_header fa fa-sign-in"></i>&nbsp;Sign In Admin</a>
+              <a class="getstarted scrollto" href="{{url('/login')}}" style="align-content: center; text-align:center;"><i class = "icon_header fa fa-sign-in"></i>&nbsp;Sign In Admin / Member</a>
             </li>
 
-            <li>
+            {{-- <li>
               <a class="getstarted scrollto" href="{{url('/daftar_member_baru')}}" style="align-content: center; text-align:center;"><i class = "icon_header fa fa-sign-in"></i>&nbsp;Member Register</a>
-            </li>
+            </li> --}}
 
                 
             @endif

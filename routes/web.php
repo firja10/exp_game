@@ -95,6 +95,8 @@ Route::patch('/admin/invoice/{id}/gagal',[\App\Http\Controllers\LandingControlle
 
 
 Auth::routes(['verify' => true]);
+
+// Halaman Admin
 Route::get('/admin/home',[\App\Http\Controllers\LandingController::class,'adminHome'])->name('adminHome')->middleware('is_admin');
 Route::resource('/admin/kategori',\App\Http\Controllers\KategoriController::class)->middleware('is_admin');
 Route::resource('/admin/nominal',\App\Http\Controllers\NominalController::class)->middleware('is_admin');
@@ -102,3 +104,10 @@ Route::get('/admin/user',[\App\Http\Controllers\LandingController::class,'adminU
 Route::post('/admin/user/{id}',[\App\Http\Controllers\LandingController::class,'SendWhatsApp'])->name('SendWhatsApp')->middleware('is_admin');
 
 Route::resource('/invoice',\App\Http\Controllers\OrderController::class)->middleware('is_admin');
+
+
+
+
+// Halaman Member
+Route::get('/member/home',[\App\Http\Controllers\LandingController::class,'MemberHome'])->name('MemberHome')->middleware('is_member');
+Route::get('/member/profile',[\App\Http\Controllers\LandingController::class,'MemberProfile'])->name('MemberProfile')->middleware('is_member');

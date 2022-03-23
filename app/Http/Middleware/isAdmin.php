@@ -19,7 +19,7 @@ class isAdmin
     {
 
         // if(auth()->check() && auth()->user()->is_admin == 1)
-        if(auth()->check() && Auth::user()->is_admin == 1)
+        if(auth()->check() && (Auth::user()->is_admin == 1 || Auth::user()->is_admin == 2))
         {
 
             return $next($request);
@@ -27,7 +27,7 @@ class isAdmin
         }
 
         // elseif(auth()->check() && auth()->user()->is_admin != 1)
-        elseif(auth()->check() && Auth::user()->is_admin != 1)
+        elseif(auth()->check() && (Auth::user()->is_admin != 1 || Auth::user()->is_admin != 2))
         {
             return redirect('login')->with('failed', 'Anda Tidak Punya Wewenang Sebagai Admin');
         }

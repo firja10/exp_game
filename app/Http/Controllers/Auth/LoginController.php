@@ -56,10 +56,19 @@ class LoginController extends Controller
         {
             if (auth()->user()->is_admin == 1 && auth()->user()->email_verified_at != NULL) {
                 return redirect('admin/home');
-            }else{
+            }
+
+            elseif((auth()->user()->is_member == 1 && auth()->user()->email_verified_at != NULL))
+            {
+                return redirect('member/home');
+            }
+            
+            
+            else{
                 Auth::logout();
                 return redirect('login')->with('error_admin','Maaf Anda Bukan Admin, Silakan Tunggu Verifikasi Jika Sudah Mendaftar');
             }
+            
         }else{
             return redirect('login')
                 ->with('error','Maaf Anda Salah Memasukkan Email / Password');
