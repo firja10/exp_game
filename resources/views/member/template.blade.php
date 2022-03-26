@@ -157,6 +157,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
           </li>    
+
+
+
+          <li class="nav-item">
+            <a href="{{url('/member/join_reseller')}}" class="nav-link" id = "join_reseller">
+              <i class="fa fa-list nav-icon"></i>
+              {{-- <i class="nav-icon fas fa-th"></i> --}}
+                <p>
+                 Join Reseller
+                    {{-- <span class="right badge badge-danger">New</span> --}}
+                </p>
+              </a>
+          </li>   
           
           
           
@@ -171,6 +184,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
           </li>   
+
+
+
+
+
+
+
 
 
 

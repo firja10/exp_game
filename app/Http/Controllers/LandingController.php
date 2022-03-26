@@ -610,6 +610,17 @@ return view('coba_api');
 
 
 
+    public function JoinReseller()
+    {
+        # code...
+
+
+        return view('member.join_reseller');
+
+    }
+
+
+
 
 
 

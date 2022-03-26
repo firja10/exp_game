@@ -113,3 +113,5 @@ Route::get('/member/home',[\App\Http\Controllers\LandingController::class,'Membe
 Route::get('/member/profile',[\App\Http\Controllers\LandingController::class,'MemberProfile'])->name('MemberProfile')->middleware('is_member');
 
 Route::delete('/member/profile/{id}',[\App\Http\Controllers\LandingController::class,'deleteinvoiceMember'])->name('deleteinvoiceMember')->middleware('is_member');
+
+Route::get('/member/join_reseller',[\App\Http\Controllers\LandingController::class,'JoinReseller'])->name('JoinReseller');
