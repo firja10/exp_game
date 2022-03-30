@@ -419,6 +419,27 @@
             text: 'Thumbnail'
           });
         </script>
+
+
+<script>
+
+  $(document).ready(function(){
+    var nominal = null;
+  
+    $(':radio[name="nominal"]').click(function(){
+      nominal = this.id;
+      $('.tombol-bayar').html('IDR ' + nominal);
+   
+      $('.tombol-bayar').show();
+  
+  
+    })
+  
+  
+  })
+  
+  </script>
+  
   
   
   

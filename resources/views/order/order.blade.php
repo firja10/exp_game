@@ -143,13 +143,13 @@ Order {{$kategori->nama_kategori}}
                     
                     <div class="form-group col-lg-6">
                       <label for="id_user">User ID</label>
-                      <input type="number"  class="form-control" id="id_user" name = "id_user" placeholder = "ID User Anda">
+                      <input type="number"  class="form-control" id="id_user" name = "id_user" placeholder = "ID User Anda" required>
                       {{-- <input type="hidden" name="user_id" value = "{{Auth::user()->id}}"> --}}
                     </div>
 
                     <div class="form-group  col-lg-6">
                       <label for="id_server">Server ID</label>
-                      <input type="number" class="form-control" id="id_server" name = "id_server" placeholder = "ID Server Anda">
+                      <input type="number" class="form-control" id="id_server" name = "id_server" placeholder = "ID Server Anda" required>
                     </div>
 
                     <input type="hidden" name="nama_game" value = "{{$kategori->nama_kategori}}">
@@ -210,11 +210,13 @@ Order {{$kategori->nama_kategori}}
                                 @foreach ($data as $nomin)
                                 
 
+                                <?php   ?>
+
                                   <div class="col-md-4 col-lg-4 col-sm-4">
                                     
                                     <label class = "card_order">
-                                      <input type="radio" name="nominal" class="card-input-element" value = "{{$nomin->id}}" />
-                            
+                                      <input type="radio" name="nominal" class="card-input-element" value = "{{$nomin->id}}" id = "{{$nomin->harga_nominal}}" />
+                                      {{-- <input type="hidden" name="nominal" value = "{{$nomin->id}}" /> --}}
                                         <div class="card card-default card-input">
                                           <div class="card-header"> <i class = "fa fa-diamond" arria-hidden="true" ></i>&nbsp;{{$nomin->nominal_kategori}}</div>
                                           {{-- <div class="card-body">
@@ -324,7 +326,20 @@ Order {{$kategori->nama_kategori}}
                                       <input type="radio" name="metode_bayar" class="card-input-element" value = "BCA" />
                             
                                         <div class="card card-default card-input">
-                                          <div class="card-header"> <img src="{{asset('daftar_bank/bca.svg')}}" alt="" class = "gambar_bayar"> </div>
+                                          <div class="card-header d-flex justify-content-between">
+                                            <div>
+                                              <img src="{{asset('daftar_bank/bca.svg')}}" alt="" class = "gambar_bayar"> 
+                                            </div>
+
+
+                                            <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                              <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                               
+                                              </button>
+                                            </div>
+
+                                             
+                                            </div>
                                           <div class="card-body">
                                            <h5> Bank Central Asia ( BCA )</h5>
                                           
@@ -344,7 +359,19 @@ Order {{$kategori->nama_kategori}}
                                       <input type="radio" name="metode_bayar" class="card-input-element" value = "BNI" />
                             
                                         <div class="card card-default card-input">
-                                          <div class="card-header"> <img src="{{asset('daftar_bank/bni.png')}}" alt="" class = "gambar_bayar"> </div>
+                                          <div class="card-header d-flex justify-content-between">
+                                             <div>
+                                              <img src="{{asset('daftar_bank/bni.png')}}" alt="" class = "gambar_bayar">    
+                                            </div> 
+                                          
+                                            <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                              <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                               
+                                              </button>
+                                            </div>
+
+
+                                          </div>
                                           <div class="card-body">
                                             <h5> Bank Negara Indonesia ( BNI )</h5>
                                           </div>
@@ -365,7 +392,16 @@ Order {{$kategori->nama_kategori}}
                                       <input type="radio" name="metode_bayar" class="card-input-element" value = "MANDIRI" />
                             
                                         <div class="card card-default card-input">
-                                          <div class="card-header"> <img src="{{asset('daftar_bank/MANDIRI.png')}}" alt="" class = "gambar_bayar"> </div>
+                                          <div class="card-header d-flex justify-content-between"> 
+                                            <div><img src="{{asset('daftar_bank/MANDIRI.png')}}" alt="" class = "gambar_bayar"></div>
+
+                                            <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                              <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                               
+                                              </button>
+                                            </div>
+
+                                          </div>
                                           <div class="card-body">
                                             <h5> Bank Mandiri</h5>
                                           </div>
@@ -386,7 +422,16 @@ Order {{$kategori->nama_kategori}}
                                       <input type="radio" name="metode_bayar" class="card-input-element" value = "BTPN" />
                             
                                         <div class="card card-default card-input">
-                                          <div class="card-header"> <img src="{{asset('daftar_bank/BTPN.png')}}" alt="" class = "gambar_bayar"> </div>
+                                          <div class="card-header d-flex justify-content-between"> 
+                                            <div><img src="{{asset('daftar_bank/BTPN.png')}}" alt="" class = "gambar_bayar"></div>
+
+                                            <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                              <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                               
+                                              </button>
+                                            </div>
+
+                                              </div>
                                           <div class="card-body">
                                             <h5> Bank BTPN</h5>
                                           </div>
@@ -486,7 +531,15 @@ Order {{$kategori->nama_kategori}}
                                   <input type="radio" name="metode_bayar" class="card-input-element" value = "ALFAMART" />
                         
                                     <div class="card card-default card-input">
-                                      <div class="card-header"> <img src="{{asset('daftar_bank/ALFAMART.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-header d-flex justify-content-between"> <div><img src="{{asset('daftar_bank/ALFAMART.png')}}" alt="" class = "gambar_bayar"></div> 
+                                    
+                                      <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                        <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                         
+                                        </button>
+                                      </div>
+                                    
+                                    </div>
                                       <div class="card-body">
                                         <h5>Alfamart</h5>
                                       </div>
@@ -506,7 +559,15 @@ Order {{$kategori->nama_kategori}}
                                   <input type="radio" name="metode_bayar" class="card-input-element" value = "INDOMARET" />
                         
                                     <div class="card card-default card-input">
-                                      <div class="card-header"> <img src="{{asset('daftar_bank/INDOMARET.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-header d-flex justify-content-between"> <div> <img src="{{asset('daftar_bank/INDOMARET.png')}}" alt="" class = "gambar_bayar"></div> 
+                                    
+                                      <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                        <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                         
+                                        </button>
+                                      </div>
+                                    
+                                    </div>
                                       <div class="card-body">
                                         <h5>Indomaret</h5>
                                       </div>
@@ -525,7 +586,15 @@ Order {{$kategori->nama_kategori}}
                                   <input type="radio" name="metode_bayar" class="card-input-element" value = "ALFAMIDI" />
                         
                                     <div class="card card-default card-input">
-                                      <div class="card-header"> <img src="{{asset('daftar_bank/ALFAMIDI.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-header d-flex justify-content-between"> <div><img src="{{asset('daftar_bank/ALFAMIDI.png')}}" alt="" class = "gambar_bayar"></div> 
+                                    
+                                      <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                        <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                         
+                                        </button>
+                                      </div>
+
+                                    </div>
                                       <div class="card-body">
                                         <h5>Alfamidi</h5>
                                       </div>
@@ -570,7 +639,15 @@ Order {{$kategori->nama_kategori}}
                                   <input type="radio" name="metode_bayar" class="card-input-element" value = "OVO" />
                         
                                     <div class="card card-default card-input">
-                                      <div class="card-header"> <img src="{{asset('daftar_bank/OVO.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-header d-flex justify-content-between"> <div><img src="{{asset('daftar_bank/OVO.png')}}" alt="" class = "gambar_bayar"></div>
+                                    
+                                      <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                        <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                         
+                                        </button>
+                                      </div>
+
+                                    </div>
                                       <div class="card-body">
                                         <h5>OVO</h5>
                                       </div>
@@ -588,7 +665,18 @@ Order {{$kategori->nama_kategori}}
                                   <input type="radio" name="metode_bayar" class="card-input-element" value = "GOPAY" />
                         
                                     <div class="card card-default card-input">
-                                      <div class="card-header"> <img src="{{asset('daftar_bank/GOPAY.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-header d-flex justify-content-between"> <div><img src="{{asset('daftar_bank/GOPAY.png')}}" alt="" class = "gambar_bayar"></div> 
+                                    
+                                                                          
+                                      <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                        <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                         
+                                        </button>
+                                      </div>
+
+                                    
+                                    
+                                    </div>
                                       <div class="card-body">
                                         <h5>Go-Pay</h5>
                                       </div>
@@ -609,7 +697,16 @@ Order {{$kategori->nama_kategori}}
                                   <input type="radio" name="metode_bayar" class="card-input-element" value = "DANA" />
                         
                                     <div class="card card-default card-input">
-                                      <div class="card-header"> <img src="{{asset('daftar_bank/DANA.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-header d-flex justify-content-between"> <div><img src="{{asset('daftar_bank/DANA.png')}}" alt="" class = "gambar_bayar"></div> 
+                                    
+                                      <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                        <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                         
+                                        </button>
+                                      </div>
+
+                                      
+                                    </div>
                                       <div class="card-body">
                                         <h5>Dana</h5>
                                       </div>
@@ -628,7 +725,16 @@ Order {{$kategori->nama_kategori}}
                                   <input type="radio" name="metode_bayar" class="card-input-element" value = "SHOPEEPAY" />
                         
                                     <div class="card card-default card-input">
-                                      <div class="card-header"> <img src="{{asset('daftar_bank/SHOPEEPAY.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-header d-flex justify-content-between"> <div><img src="{{asset('daftar_bank/SHOPEEPAY.png')}}" alt="" class = "gambar_bayar"></div> 
+                                    
+                                      <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                        <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                         
+                                        </button>
+                                      </div>
+                                    
+                                    
+                                    </div>
                                       <div class="card-body">
                                         <h5>Shopee-Pay</h5>
                                       </div>
@@ -649,7 +755,16 @@ Order {{$kategori->nama_kategori}}
                                   <input type="radio" name="metode_bayar" class="card-input-element" value = "QRIS" />
                         
                                     <div class="card card-default card-input">
-                                      <div class="card-header"> <img src="{{asset('daftar_bank/QRIS.png')}}" alt="" class = "gambar_bayar"> </div>
+                                      <div class="card-header d-flex justify-content-between"> <div><img src="{{asset('daftar_bank/QRIS.png')}}" alt="" class = "gambar_bayar"></div>
+                                    
+                                      <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                        <button class = "btn btn-primary tombol-bayar" style = "display:none;">
+                                         
+                                        </button>
+                                      </div>
+
+                                    
+                                    </div>
                                       <div class="card-body">
                                         <h5>QRIS</h5>
                                       </div>
@@ -690,7 +805,7 @@ Order {{$kategori->nama_kategori}}
                 <br>
                     <div class="form-group">
                       <label for="nomor_whatsapp">Silakan Isi Nomor Whatsapp Anda </label>
-                      <input type="number"  class="form-control" id="nomor_whatsapp" name = "nomor_whatsapp" placeholder = "628xxxxxxxxx">
+                      <input type="number"  class="form-control" id="nomor_whatsapp" name = "nomor_whatsapp" placeholder = "628xxxxxxxxx" required>
                     </div>
             </div>
           </div>

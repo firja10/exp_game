@@ -6,7 +6,7 @@
 
 @section('style')
 <style>
-  #memberhome{
+  .nav-item #memberhome{
 
     background-color:#fff;
     color:#343a40;

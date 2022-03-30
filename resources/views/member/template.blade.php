@@ -24,6 +24,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('admin_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 
 
+  <style>
+    /* #sidebar{
+      background-color:#a4518cff;
+    } */
+
+    /* .nav-link{
+      color:#fff;
+    } */
+  </style>
+
 
 
   @yield('style')
@@ -97,10 +107,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    {{-- <aside class="main-sidebar elevation-4" id = "sidebar"> --}}
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('img/logo_exp.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      
       <span class="brand-text font-weight-light"> <strong>Exp Games</strong> </span>
+
+      {{-- <img src="{{asset('img/logo_exp_2.png')}}" alt="EXP GAME LOGO" class="brand-image" style="opacity: .8"> --}}
     </a>
 
     <!-- Sidebar -->
@@ -161,11 +175,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
           <li class="nav-item">
-            <a href="{{url('/member/join_reseller')}}" class="nav-link" id = "join_reseller">
+            {{-- <a href="{{url('/member/join_reseller')}}" class="nav-link" id = "join_reseller"> --}}
+              <a href="{{url('/member/upgrade_role')}}" class="nav-link" id = "upgrade_role">
               <i class="fa fa-list nav-icon"></i>
               {{-- <i class="nav-icon fas fa-th"></i> --}}
                 <p>
-                 Join Reseller
+                 Upgrade Role
                     {{-- <span class="right badge badge-danger">New</span> --}}
                 </p>
               </a>
@@ -280,10 +295,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
+  <footer class="main-footer text-white" style = "background: #a4518cff;">
     <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
+    <div class="float-right d-none d-sm-inline text-white">
+      Pelayanan Terbaik
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; <?php echo date('Y') ?>  <a href="https://adminlte.io">Exp Games</a>.</strong> All rights reserved.
@@ -298,7 +313,67 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Bootstrap 4 -->
 <script src="{{asset('admin_lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
+
+
 <script src="{{asset('admin_lte/dist/js/adminlte.min.js')}}"></script>
+
+
+
+
+
+
+<script>
+
+$(document).ready(function() {
+  var category = null;
+  $(':radio[name="kategori"]').click(function() {
+    category = this.value;
+
+    if(category == 'SILVER')
+    {
+
+      $('.silver').show();
+      $('.gold').hide();
+
+    }
+    else if (category == 'GOLD')
+    {
+
+      $('.silver').hide();
+      $('.gold').show();
+
+    }
+
+    else {
+      $('.silver').hide();
+      $('.gold').hide();
+    }
+
+  })
+})
+
+
+</script>
+
+
+<script>
+
+$(document).ready(function(){
+  var nominal = null;
+
+  $(':radio[name="nominal"]').click(function(){
+    nominal = this.value;
+ 
+    $('.tombol_bayar').show();
+
+
+  })
+
+
+})
+
+</script>
+
 
 
 

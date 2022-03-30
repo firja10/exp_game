@@ -114,9 +114,18 @@ Route::get('/member/profile',[\App\Http\Controllers\LandingController::class,'Me
 
 Route::delete('/member/profile/{id}',[\App\Http\Controllers\LandingController::class,'deleteinvoiceMember'])->name('deleteinvoiceMember')->middleware('is_member');
 
-Route::get('/member/join_reseller',[\App\Http\Controllers\LandingController::class,'JoinReseller'])->name('JoinReseller');
+// Route::get('/member/join_reseller',[\App\Http\Controllers\LandingController::class,'JoinReseller'])->name('JoinReseller');
 
-Route::post('/member/join_reseller',[\App\Http\Controllers\LandingController::class,'addOrderReseller'])->name('addOrderReseller');
+// Route::post('/member/join_reseller',[\App\Http\Controllers\LandingController::class,'addOrderReseller'])->name('addOrderReseller');
+
+
+
+Route::get('/member/upgrade_role',[\App\Http\Controllers\LandingController::class,'JoinReseller'])->name('JoinReseller');
+
+Route::post('/member/upgrade_role',[\App\Http\Controllers\LandingController::class,'addOrderReseller'])->name('addOrderReseller');
+
+
+
 
 Route::get('/member/invoice/{id}',[\App\Http\Controllers\LandingController::class,'InvoiceReseller'])->name('InvoiceReseller');
 

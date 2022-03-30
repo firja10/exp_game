@@ -1,18 +1,25 @@
 @extends('member.template')
 
 @section('title')
-    Join Reseller
+    Upgrade Role
 @endsection
 
 @section('style')
 <style>
-  #join_reseller{
+  /* #join_reseller{
 
     background-color:#fff;
     color:#343a40;
 
-  }
+  } */
 
+
+  #upgrade_role{
+
+background-color:#fff;
+color:#343a40;
+
+}
 
 
 
@@ -103,14 +110,13 @@
          
           <div class="card">
               <div class="card-header bg-light">
-                <h4>Upgrade Role</h4>  
+             <strong><h4>Upgrade Role</h4></strong>     
               </div>
 
             <div class="card-body">
 
-              <form action="">
-
-
+              <form action="" method = "POST">
+                @csrf
 
                 <div>
                     <h3>
@@ -147,7 +153,7 @@
 
                                 
                                 <label class = "card_order">
-                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "DANA" />
+                                  <input type="radio" name="kategori" class="card-input-element" value = "SILVER" />
                         
                                     {{-- <div class="card card-default card-masukkan"> --}}
                                       <div class="card card-default card-masukkan ">
@@ -220,7 +226,7 @@
 
 
                                 <label class = "card_order">
-                                  <input type="radio" name="metode_bayar" class="card-input-element" value = "DANA" />
+                                  <input type="radio" name="kategori" class="card-input-element" value = "GOLD" />
                         
                                     {{-- <div class="card card-default card-masukkan"> --}}
                                       <div class="card card-default card-masukkan ">
@@ -268,7 +274,7 @@
                                     <div style = "ml-auto; text-align:right;">
                                           
                                       <button class = "btn btn-primary">
-                                        Rp. 150.000
+                                        Rp. 500.000
                                       </button>
                                    
                                   </div>
@@ -339,9 +345,16 @@
                                       </div>
 
                                       <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
-                                        <button class = "btn btn-primary">
+                                        <button class = "btn btn-primary silver" style = "display:none;">
                                           Rp. 150.000
                                         </button>
+
+                                        <button class = "btn btn-primary gold" style = "display:none;">
+                                          Rp. 500.000
+                                        </button>
+
+
+
                                       </div>
                               
                                      </div>
@@ -370,8 +383,12 @@
                                     </div>
 
                                     <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
-                                      <button class = "btn btn-primary">
+                                      <button class = "btn btn-primary silver" style = "display:none;">
                                         Rp. 150.000
+                                      </button>
+
+                                      <button class = "btn btn-primary gold" style = "display:none;">
+                                        Rp. 500.000
                                       </button>
                                     </div>
                                       
@@ -402,8 +419,12 @@
                                         </div> 
 
                                         <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
-                                          <button class = "btn btn-primary">
+                                          <button class = "btn btn-primary silver" style = "display:none;">
                                             Rp. 150.000
+                                          </button>
+  
+                                          <button class = "btn btn-primary gold" style = "display:none;">
+                                            Rp. 500.000
                                           </button>
                                         </div>
                                           
@@ -435,8 +456,12 @@
                                         </div> 
 
                                         <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
-                                          <button class = "btn btn-primary">
+                                          <button class = "btn btn-primary silver" style = "display:none;">
                                             Rp. 150.000
+                                          </button>
+  
+                                          <button class = "btn btn-primary gold" style = "display:none;">
+                                            Rp. 500.000
                                           </button>
                                         </div>
 
@@ -513,8 +538,12 @@
                                     </div> 
 
                                     <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
-                                      <button class = "btn btn-primary">
+                                      <button class = "btn btn-primary silver" style = "display:none;">
                                         Rp. 150.000
+                                      </button>
+
+                                      <button class = "btn btn-primary gold" style = "display:none;">
+                                        Rp. 500.000
                                       </button>
                                     </div>
 
@@ -546,8 +575,12 @@
                                     </div> 
                                     
                                     <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
-                                      <button class = "btn btn-primary">
+                                      <button class = "btn btn-primary silver" style = "display:none;">
                                         Rp. 150.000
+                                      </button>
+
+                                      <button class = "btn btn-primary gold" style = "display:none;">
+                                        Rp. 500.000
                                       </button>
                                     </div>
                                     
@@ -572,7 +605,23 @@
                               <div class="card card-default card-masukkan">
                                 <div class="card-header d-flex justify-content-between"> 
                                   <div>
-                                    </div> <img src="{{asset('daftar_bank/ALFAMIDI.png')}}" alt="" class = "gambar_bayar"> </div>
+                                    <img src="{{asset('daftar_bank/ALFAMIDI.png')}}" alt="" class = "gambar_bayar"> 
+                                    </div> 
+
+
+                                    <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                      <button class = "btn btn-primary silver" style = "display:none;">
+                                        Rp. 150.000
+                                      </button>
+
+                                      <button class = "btn btn-primary gold" style = "display:none;">
+                                        Rp. 500.000
+                                      </button>
+                                    </div>
+
+
+
+                                  </div>
                                 <div class="card-body">
                                   <h5>Alfamidi</h5>
                                 </div>
@@ -625,7 +674,22 @@
                               <div class="card card-default card-masukkan">
                                 <div class="card-header d-flex justify-content-between"> 
                                   <div>
-                                    </div> <img src="{{asset('daftar_bank/OVO.png')}}" alt="" class = "gambar_bayar"> </div>
+                                    <img src="{{asset('daftar_bank/OVO.png')}}" alt="" class = "gambar_bayar"> 
+                                    </div>
+
+                                    <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                      <button class = "btn btn-primary silver" style = "display:none;">
+                                        Rp. 150.000
+                                      </button>
+
+                                      <button class = "btn btn-primary gold" style = "display:none;">
+                                        Rp. 500.000
+                                      </button>
+                                    </div>
+
+
+                                     
+                                    </div>
                                 <div class="card-body">
                                   <h5>OVO</h5>
                                 </div>
@@ -645,7 +709,20 @@
                               <div class="card card-default card-masukkan">
                                 <div class="card-header d-flex justify-content-between"> 
                                   <div>
-                                    </div> <img src="{{asset('daftar_bank/GOPAY.png')}}" alt="" class = "gambar_bayar"> </div>
+                                    <img src="{{asset('daftar_bank/GOPAY.png')}}" alt="" class = "gambar_bayar">
+                                    </div> 
+
+                                    <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                      <button class = "btn btn-primary silver" style = "display:none;">
+                                        Rp. 150.000
+                                      </button>
+
+                                      <button class = "btn btn-primary gold" style = "display:none;">
+                                        Rp. 500.000
+                                      </button>
+                                    </div>
+                                   
+                                  </div>
                                 <div class="card-body">
                                   <h5>Go-Pay</h5>
                                 </div>
@@ -668,7 +745,20 @@
                               <div class="card card-default card-masukkan">
                                 <div class="card-header d-flex justify-content-between"> 
                                   <div>
-                                    </div> <img src="{{asset('daftar_bank/DANA.png')}}" alt="" class = "gambar_bayar"> </div>
+                                    <img src="{{asset('daftar_bank/DANA.png')}}" alt="" class = "gambar_bayar">
+                                  </div>
+
+                                  <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                    <button class = "btn btn-primary silver" style = "display:none;">
+                                      Rp. 150.000
+                                    </button>
+
+                                    <button class = "btn btn-primary gold" style = "display:none;">
+                                      Rp. 500.000
+                                    </button>
+                                  </div>
+
+                                   </div>
                                 <div class="card-body">
                                   <h5>Dana</h5>
                                 </div>
@@ -689,7 +779,21 @@
                               <div class="card card-default card-masukkan">
                                 <div class="card-header d-flex justify-content-between"> 
                                   <div>
-                                    </div> <img src="{{asset('daftar_bank/SHOPEEPAY.png')}}" alt="" class = "gambar_bayar"> </div>
+                                    <img src="{{asset('daftar_bank/SHOPEEPAY.png')}}" alt="" class = "gambar_bayar">
+                                    </div>  
+                                  
+                                    <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                      <button class = "btn btn-primary silver" style = "display:none;">
+                                        Rp. 150.000
+                                      </button>
+  
+                                      <button class = "btn btn-primary gold" style = "display:none;">
+                                        Rp. 500.000
+                                      </button>
+                                    </div>
+                                  
+                                  
+                                  </div>
                                 <div class="card-body">
                                   <h5>Shopee-Pay</h5>
                                 </div>
@@ -712,7 +816,26 @@
                               <div class="card card-default card-masukkan">
                                 <div class="card-header d-flex justify-content-between"> 
                                   <div>
-                                    </div> <img src="{{asset('daftar_bank/QRIS.png')}}" alt="" class = "gambar_bayar"> </div>
+                                  
+                                    <img src="{{asset('daftar_bank/QRIS.png')}}" alt="" class = "gambar_bayar">
+
+                                  </div> 
+
+
+
+                                  <div class = "ml-auto; text-align:right;" style = "margin-left:auto">
+                                    <button class = "btn btn-primary silver" style = "display:none;">
+                                      Rp. 150.000
+                                    </button>
+
+                                    <button class = "btn btn-primary gold" style = "display:none;">
+                                      Rp. 500.000
+                                    </button>
+                                  </div>
+
+
+
+                                   </div>
                                 <div class="card-body">
                                   <h5>QRIS</h5>
                                 </div>
