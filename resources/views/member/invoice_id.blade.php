@@ -1,7 +1,7 @@
 @extends('templates.template')
 
 @section('title')
-Invoice {{$orders->invoice_code}}
+Invoice {{$order_resellers->invoice_code}}
     
 @endsection
 
@@ -39,7 +39,7 @@ Invoice {{$orders->invoice_code}}
 
         <?php
         
-        if($orders->status_order == 0)
+        if($order_resellers->status_order == 0)
         {
 
         ?>
@@ -48,7 +48,7 @@ Invoice {{$orders->invoice_code}}
           <div class="card">
             <div class="card-header d-flex justify-content-between">
               <div>
-                <h5 class="m-0">Invoice Number : #{{$orders->invoice_code}}</h5>
+                <h5 class="m-0">Invoice Number : #{{$order_resellers->invoice_code}}</h5>
               </div>
               
               <div>
@@ -58,7 +58,7 @@ Invoice {{$orders->invoice_code}}
               {{-- <table>
                 <tbody>
                   <tr>
-                  <td><h5 class="m-0">Invoice Number : #{{$orders->invoice_code}}</h5></td>
+                  <td><h5 class="m-0">Invoice Number : #{{$order_resellers->invoice_code}}</h5></td>
                   <td style = "justify-content: right; text-align:right"><span> Status </span></td>
                 </tr>
                 </tbody>
@@ -70,13 +70,13 @@ Invoice {{$orders->invoice_code}}
             <div class="card-body">
               <?php 
                 
-                $tanggal_mulai = $orders->created_at;
+                $tanggal_mulai = $order_resellers->created_at;
                 $tanggal_akhir = $tanggal_mulai->addDays(1) ;
                 
                 
                 
                 ?>
-              <h6 class="card-title">Tanggal Dibuat : {{$orders->created_at}}</h6>
+              <h6 class="card-title">Tanggal Dibuat : {{$order_resellers->created_at}}</h6>
               <h6 class="card-title" style = "color:red;">Tanggal Kadaluarsa : <?php echo $tanggal_akhir;  ?> </h6>
 
               <div class="alert alert-warning">
@@ -103,16 +103,16 @@ Invoice {{$orders->invoice_code}}
                   <tr>
                    
                     <th scope="col">Nama Layanan</th>
-                    <th scope="col">Total Harga</th>
+                    <th scope="col">ID User</th>
                     <th scope="col">Metode Pembayaran</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                 
-                    <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
-                    <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
-                    <td>{{$orders->metode_bayar}}</td>
+                    <td>{{$order_resellers->nama_game}} ( <?php echo $nominal['kategori']; ?> )</td>
+                    <td>IDR <?php echo $nominal['total']; ?></td>
+                    <td>{{$order_resellers->metode_bayar}}</td>
                   </tr>
         
                 </tbody>
@@ -145,68 +145,19 @@ Invoice {{$orders->invoice_code}}
                       </tr> --}}
                     </thead>
                     <tbody>
-
-                      <?php 
-                        
-                        
-
-                        ?>
-
                       <tr>
                         <td>Harga</td>
-                        <td>IDR {{$orders->harga_order}}</td>
+                        <td>IDR {{$order_resellers->id_user}}</td>
                       </tr>
-
-                      <?php
-                      
-                     $harga_order = $orders->harga_order;
-                     $metode_bayar = $orders->metode_bayar;
-
-                     switch ($metode_bayar) {
-                       case 'BCA':
-                         # code...
-                         $biaya_admin = 600;
-                         // return $biaya_admin;
-                         break;
-                       
-                       case 'BNI':
-                         # code...
-                         $biaya_admin = 500;
-                        //  return $biaya_admin;
-                         break;
-
-                       case 'MANDIRI':
-                         # code...
-                         $biaya_admin = 500;
-                        //  return $biaya_admin;
-                         break;
-
-                       case 'ALFAMART':
-                         # code...
-                         $biaya_admin = 500;
-                        //  return $biaya_admin;
-                         break;
-                       
-                       default:
-                         # code...
-                         $biaya_admin = "";
-                        //  return $biaya_admin;
-                         break;
-                     }
-
-                     
-                      ?>
 
                       <tr>
                         <td>Biaya Admin</td>
-                        <td>IDR <?php 
-                       echo $biaya_admin;
-                         ?> </td>
+                        <td>IDR {{$order_resellers->id_user}}</td>
                       </tr>
 
                       <tr>
                         <td> <strong>Total Yang Harus Dibayar</strong> </td>
-                        <td> <strong>IDR {{$orders->id_user}}</strong> </td>
+                        <td> <strong>IDR {{$order_resellers->id_user}}</strong> </td>
                       </tr>
             
                     </tbody>
@@ -243,7 +194,7 @@ Invoice {{$orders->invoice_code}}
         <?php 
       }
 
-        elseif($orders->status_order == 1) {
+        elseif($order_resellers->status_order == 1) {
 
         ?>
 
@@ -257,7 +208,7 @@ Invoice {{$orders->invoice_code}}
               <div class="card">
                 <div class="card-header d-flex justify-content-between">
                   <div>
-                    <h5 class="m-0">Invoice Number : #{{$orders->invoice_code}}</h5>
+                    <h5 class="m-0">Invoice Number : #{{$order_resellers->invoice_code}}</h5>
                   </div>
                   
                   <div>
@@ -267,7 +218,7 @@ Invoice {{$orders->invoice_code}}
                   {{-- <table>
                     <tbody>
                       <tr>
-                      <td><h5 class="m-0">Invoice Number : #{{$orders->invoice_code}}</h5></td>
+                      <td><h5 class="m-0">Invoice Number : #{{$order_resellers->invoice_code}}</h5></td>
                       <td style = "justify-content: right; text-align:right"><span> Status </span></td>
                     </tr>
                     </tbody>
@@ -279,13 +230,13 @@ Invoice {{$orders->invoice_code}}
                 <div class="card-body">
                   <?php 
                     
-                    $tanggal_mulai = $orders->created_at;
+                    $tanggal_mulai = $order_resellers->created_at;
                     $tanggal_akhir = $tanggal_mulai->addDays(1) ;
                     
                     
                     
                     ?>
-                  <h6 class="card-title">Tanggal Dibuat : {{$orders->created_at}}</h6>
+                  <h6 class="card-title">Tanggal Dibuat : {{$order_resellers->created_at}}</h6>
                   <h6 class="card-title" style = "color:red;">Tanggal Kadaluarsa : <?php echo $tanggal_akhir;  ?> </h6>
     
                   <div class="alert alert-danger">
@@ -319,9 +270,9 @@ Invoice {{$orders->invoice_code}}
                     <tbody>
                       <tr>
                     
-                        <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
+                        <td>{{$order_resellers->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
                         <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
-                        <td>{{$orders->metode_bayar}}</td>
+                        <td>{{$order_resellers->metode_bayar}}</td>
                       </tr>
             
                     </tbody>
@@ -356,17 +307,17 @@ Invoice {{$orders->invoice_code}}
                         <tbody>
                           <tr>
                             <td>Harga</td>
-                            <td>IDR {{$orders->id_user}}</td>
+                            <td>IDR {{$order_resellers->id_user}}</td>
                           </tr>
     
                           <tr>
                             <td>Biaya Admin</td>
-                            <td>IDR {{$orders->id_user}}</td>
+                            <td>IDR {{$order_resellers->id_user}}</td>
                           </tr>
     
                           <tr>
                             <td> <strong>Total Yang Harus Dibayar</strong> </td>
-                            <td> <strong>IDR {{$orders->id_user}}</strong> </td>
+                            <td> <strong>IDR {{$order_resellers->id_user}}</strong> </td>
                           </tr>
                 
                         </tbody>
@@ -409,7 +360,7 @@ Invoice {{$orders->invoice_code}}
       <?php
               }
 
-        elseif($orders->status_order == 2)
+        elseif($order_resellers->status_order == 2)
         {
 
       ?>
@@ -425,7 +376,7 @@ Invoice {{$orders->invoice_code}}
         <div class="card">
           <div class="card-header d-flex justify-content-between">
             <div>
-              <h5 class="m-0">Invoice Number : #{{$orders->invoice_code}}</h5>
+              <h5 class="m-0">Invoice Number : #{{$order_resellers->invoice_code}}</h5>
             </div>
             
             <div>
@@ -435,7 +386,7 @@ Invoice {{$orders->invoice_code}}
             {{-- <table>
               <tbody>
                 <tr>
-                <td><h5 class="m-0">Invoice Number : #{{$orders->invoice_code}}</h5></td>
+                <td><h5 class="m-0">Invoice Number : #{{$order_resellers->invoice_code}}</h5></td>
                 <td style = "justify-content: right; text-align:right"><span> Status </span></td>
               </tr>
               </tbody>
@@ -447,13 +398,13 @@ Invoice {{$orders->invoice_code}}
           <div class="card-body">
             <?php 
               
-              $tanggal_mulai = $orders->created_at;
+              $tanggal_mulai = $order_resellers->created_at;
               $tanggal_akhir = $tanggal_mulai->addDays(1) ;
               
               
               
               ?>
-            <h6 class="card-title">Tanggal Dibuat : {{$orders->created_at}}</h6>
+            <h6 class="card-title">Tanggal Dibuat : {{$order_resellers->created_at}}</h6>
             <h6 class="card-title" style = "color:red;">Tanggal Kadaluarsa : <?php echo $tanggal_akhir;  ?> </h6>
 
             <div class="alert alert-success">
@@ -487,9 +438,9 @@ Invoice {{$orders->invoice_code}}
               <tbody>
                 <tr>
               
-                  <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
+                  <td>{{$order_resellers->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
                   <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
-                  <td>{{$orders->metode_bayar}}</td>
+                  <td>{{$order_resellers->metode_bayar}}</td>
                 </tr>
       
               </tbody>
@@ -524,17 +475,17 @@ Invoice {{$orders->invoice_code}}
                   <tbody>
                     <tr>
                       <td>Harga</td>
-                      <td>IDR {{$orders->id_user}}</td>
+                      <td>IDR {{$order_resellers->id_user}}</td>
                     </tr>
 
                     <tr>
                       <td>Biaya Admin</td>
-                      <td>IDR {{$orders->id_user}}</td>
+                      <td>IDR {{$order_resellers->id_user}}</td>
                     </tr>
 
                     <tr>
                       <td> <strong>Total Yang Harus Dibayar</strong> </td>
-                      <td> <strong>IDR {{$orders->id_user}}</strong> </td>
+                      <td> <strong>IDR {{$order_resellers->id_user}}</strong> </td>
                     </tr>
           
                   </tbody>
@@ -578,7 +529,7 @@ Invoice {{$orders->invoice_code}}
         <?php
         }
 
-        elseif($orders->status_order == 3)
+        elseif($order_resellers->status_order == 3)
         {
 
         ?>
@@ -602,7 +553,7 @@ Invoice {{$orders->invoice_code}}
 
     <div class="card-header d-flex justify-content-between">
       <div>
-        <h5 class="m-0">Invoice Number : #{{$orders->invoice_code}}</h5>
+        <h5 class="m-0">Invoice Number : #{{$order_resellers->invoice_code}}</h5>
       </div>
       
       <div>
@@ -612,7 +563,7 @@ Invoice {{$orders->invoice_code}}
       {{-- <table>
         <tbody>
           <tr>
-          <td><h5 class="m-0">Invoice Number : #{{$orders->invoice_code}}</h5></td>
+          <td><h5 class="m-0">Invoice Number : #{{$order_resellers->invoice_code}}</h5></td>
           <td style = "justify-content: right; text-align:right"><span> Status </span></td>
         </tr>
         </tbody>
@@ -624,13 +575,13 @@ Invoice {{$orders->invoice_code}}
     <div class="card-body">
       <?php 
         
-        $tanggal_mulai = $orders->created_at;
+        $tanggal_mulai = $order_resellers->created_at;
         $tanggal_akhir = $tanggal_mulai->addDays(1) ;
         
         
         
         ?>
-      <h6 class="card-title">Tanggal Dibuat : {{$orders->created_at}}</h6>
+      <h6 class="card-title">Tanggal Dibuat : {{$order_resellers->created_at}}</h6>
       <h6 class="card-title" style = "color:red;">Tanggal Kadaluarsa : <?php echo $tanggal_akhir;  ?> </h6>
 
       <div class="alert alert-warning">
@@ -664,9 +615,9 @@ Invoice {{$orders->invoice_code}}
         <tbody>
           <tr>
         
-            <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
+            <td>{{$order_resellers->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
             <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
-            <td>{{$orders->metode_bayar}}</td>
+            <td>{{$order_resellers->metode_bayar}}</td>
           </tr>
 
         </tbody>
@@ -681,7 +632,7 @@ Invoice {{$orders->invoice_code}}
 
             <?php
 
-            $metode_pembayaran = $orders->metode_bayar;
+            $metode_pembayaran = $order_resellers->metode_bayar;
             
               switch ($metode_pembayaran) {
                 case 'MANDIRI':
@@ -749,17 +700,17 @@ Invoice {{$orders->invoice_code}}
             <tbody>
               <tr>
                 <td>Harga</td>
-                <td>IDR {{$orders->id_user}}</td>
+                <td>IDR {{$order_resellers->id_user}}</td>
               </tr>
 
               <tr>
                 <td>Biaya Admin</td>
-                <td>IDR {{$orders->id_user}}</td>
+                <td>IDR {{$order_resellers->id_user}}</td>
               </tr>
 
               <tr>
                 <td> <strong>Total Yang Harus Dibayar</strong> </td>
-                <td> <strong>IDR {{$orders->id_user}}</strong> </td>
+                <td> <strong>IDR {{$order_resellers->id_user}}</strong> </td>
               </tr>
     
             </tbody>
@@ -852,7 +803,7 @@ Invoice {{$orders->invoice_code}}
 
 
 
-      <form method = "post" action = "{{route('invoice.update', $orders->id)}}" enctype = "multipart/form-data"  >
+      <form method = "post" action = "{{route('invoice.update', $order_resellers->id)}}" enctype = "multipart/form-data"  >
         @csrf
         @method('PATCH')
       

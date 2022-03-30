@@ -11,6 +11,7 @@ use Twilio\Rest\Client;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\OrderReseller;
 
 class LandingController extends Controller
 {
@@ -220,10 +221,10 @@ return view('coba_api');
 
         $orders = Order::where('id', $id)->update([
             'status_order' =>2,
-            'nomor_whatsapp'=>$request['nomor_whatsapp'],
+            'user_id'=>$request['user_id'],
         ]);
 
-        // $this->whatsappNotif($orders['nomor_whatsapp']);
+        // $this->whatsappNotif($orders['user_id']);
 
         return redirect('/admin/invoice')->with('success-update-konfirmasi-invoice','Data Invoice Sukses Dikonfirmasi');
 
@@ -397,7 +398,7 @@ return view('coba_api');
         $user['is_admin'] = 0;
         $user['salin_komitmen'] = $request->salin_komitmen;
         $user['nomor_telepon'] = $request->nomor_telepon;
-        $user['nomor_whatsapp'] = $request->nomor_whatsapp;
+        $user['user_id'] = $request->user_id;
         $user['alamat_rumah'] = $request->alamat_rumah;
         $user->save();
         
@@ -464,9 +465,9 @@ return view('coba_api');
 
         //     $name = $users['name'];
         //     $alamat = $users['alamat_rumah'];
-        //     $nomor_whatsapp = $users['nomor_whatsapp'];
+        //     $user_id = $users['user_id'];
             
-        //     header("location:https://api.whatsapp.com/send?phone=$nomor_whatsapp&text=Nama:%20$name");
+        //     header("location:https://api.whatsapp.com/send?phone=$user_id&text=Nama:%20$name");
 
 
 
@@ -486,14 +487,14 @@ return view('coba_api');
 
         // $name = $users['name'];
         // $alamat = $users['alamat_rumah'];
-        // $nomor_whatsapp = $users['nomor_whatsapp'];
+        // $user_id = $users['user_id'];
 
         $name = $users->name;
         $alamat = $users->alamat_rumah;
-        $nomor_whatsapp = $users->nomor_whatsapp;
+        $user_id = $users->user_id;
         
-        // header("location:https://api.whatsapp.com/send?phone=$nomor_whatsapp&text=Nama:%20$name");
-        return redirect()->to('https://api.whatsapp.com/send?phone='.$nomor_whatsapp.'&text=Nama:%20'.$name);
+        // header("location:https://api.whatsapp.com/send?phone=$user_id&text=Nama:%20$name");
+        return redirect()->to('https://api.whatsapp.com/send?phone='.$user_id.'&text=Nama:%20'.$name);
         
 
 
@@ -534,7 +535,7 @@ return view('coba_api');
         $orders['promo_code'] = $request->promo_code; 
         $orders['metode_bayar'] = $request->metode_bayar; 
         $orders['status_order'] = $request->status_order;
-        $orders['nomor_whatsapp'] = $request->nomor_whatsapp;
+        $orders['user_id'] = $request->user_id;
         $orders['harga_order'] = $request->harga_order;
         $orders['user_id'] = $request->user_id;
         $orders['produk_id'] = $request->produk_id;
@@ -618,6 +619,44 @@ return view('coba_api');
         return view('member.join_reseller');
 
     }
+
+
+
+    public function addOrderReseller( Request $request )
+    {
+        # code...
+        $order_resellers = new OrderReseller();
+
+        $order_resellers['kategori'] = $request->kategori;
+        $order_resellers['promo_code'] = $request->promo_code;
+        $order_resellers['metode_bayar'] = $request->metode_bayar;
+        $order_resellers['invoice_code'] = $request->invoice_code;
+        $order_resellers['status_order'] = $request->status_order;
+        $order_resellers['total'] = $request->total;
+        $order_resellers['user_id'] = $request->user_id;
+
+        $order_resellers->save();
+
+        return redirect('/member/invoice/'. $order_resellers['id'])->with('msgJoinReseller','');
+
+    }
+
+
+
+
+    public function InvoiceReseller($id, OrderReseller $order_resellers)
+    {
+        # code...
+
+        $order_resellers = OrderReseller::findOrFail($id);
+
+        return view('member.invoice_id', compact('order_resellers'));
+
+    }
+
+
+
+
 
 
 
