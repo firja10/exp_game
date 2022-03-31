@@ -115,7 +115,7 @@ color:#343a40;
 
             <div class="card-body">
 
-              <form action="" method = "POST">
+              <form action="{{route('addOrderReseller')}}" method = "POST">
                 @csrf
 
                 <div>
@@ -153,14 +153,22 @@ color:#343a40;
 
                                 
                                 <label class = "card_order">
-                                  <input type="radio" name="kategori" class="card-input-element" value = "SILVER" />
+
+
+                                  <input type="radio" name="kategori" class="card-input-element" value = "SILVER" onclick="document.getElementById('perak').click()" />
+                                 
+
+                                  {{-- <input type="hidden" name="total" value = "150000"> --}}
                         
                                     {{-- <div class="card card-default card-masukkan"> --}}
                                       <div class="card card-default card-masukkan ">
                                       <div class="card-header d-flex justify-content-between"> 
                                         <div>
+                                          
                                           <h5> <strong>Silver</strong> </h5> 
                                         </div>
+
+                                        <input type="radio" name="total" value = "150000" style = "visibility: hidden" id = "perak"/>
 
                                         <div style = "ml-auto; text-align:right;">
                                         </div>
@@ -226,7 +234,8 @@ color:#343a40;
 
 
                                 <label class = "card_order">
-                                  <input type="radio" name="kategori" class="card-input-element" value = "GOLD" />
+                                  <input type="radio" name="kategori" class="card-input-element emas" value = "GOLD" />
+                                  {{-- <input type="hidden" name="total" value = "500000"> --}}
                         
                                     {{-- <div class="card card-default card-masukkan"> --}}
                                       <div class="card card-default card-masukkan ">
@@ -234,6 +243,8 @@ color:#343a40;
                                         <div>
                                           <h5> <strong>Gold</strong> </h5> 
                                         </div>
+
+                                        <input type="radio" name="total" value = "150000" style = "visibility: hidden" class = "emas"/>
 
                                         <div style = "ml-auto; text-align:right;">
                                         </div>

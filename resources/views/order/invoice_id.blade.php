@@ -96,6 +96,98 @@ Invoice {{$orders->invoice_code}}
 
                   
                   ?>
+
+
+                                             <?php
+                      
+                          $harga_order = $orders->harga_order;
+                          $metode_bayar = $orders->metode_bayar;
+     
+                          switch ($metode_bayar) {
+                            case 'BCA':
+                              # code...
+                              $biaya_admin = 600;
+                              // return $biaya_admin;
+                              break;
+                            
+                            case 'BNI':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+                            case 'MANDIRI':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+                            case 'ALFAMART':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+                            
+                           
+                             case 'ALFAMIDI':
+                              # code...
+                              $biaya_admin = 600;
+                             //  return $biaya_admin;
+                              break;
+     
+                              
+                            case 'OVO':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+     
+                             
+                            case 'GOPAY':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+                           
+                              case 'DANA':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+     
+                              
+                            case 'SHOPEEPAY':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+     
+                           
+                              case 'QRIS':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+     
+     
+                            default:
+                              # code...
+                              $biaya_admin = "";
+                             //  return $biaya_admin;
+                              break;
+                          }
+     
+                          $total = $nominals->harga_nominal + $biaya_admin;
+
+
+                           ?>
+
+
               
 
               <table class="table" style = "text-align: center">
@@ -111,7 +203,7 @@ Invoice {{$orders->invoice_code}}
                   <tr>
                 
                     <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
-                    <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
+                    <td>IDR <?php echo $total; ?></td>
                     <td>{{$orders->metode_bayar}}</td>
                   </tr>
         
@@ -419,6 +511,99 @@ Invoice {{$orders->invoice_code}}
     
                       
                       ?>
+
+
+
+
+                                             <?php
+                      
+                          $harga_order = $orders->harga_order;
+                          $metode_bayar = $orders->metode_bayar;
+     
+                          switch ($metode_bayar) {
+                            case 'BCA':
+                              # code...
+                              $biaya_admin = 600;
+                              // return $biaya_admin;
+                              break;
+                            
+                            case 'BNI':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+                            case 'MANDIRI':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+                            case 'ALFAMART':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+                            
+                           
+                             case 'ALFAMIDI':
+                              # code...
+                              $biaya_admin = 600;
+                             //  return $biaya_admin;
+                              break;
+     
+                              
+                            case 'OVO':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+     
+                             
+                            case 'GOPAY':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+                           
+                              case 'DANA':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+     
+                              
+                            case 'SHOPEEPAY':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+     
+                           
+                              case 'QRIS':
+                              # code...
+                              $biaya_admin = 500;
+                             //  return $biaya_admin;
+                              break;
+     
+     
+     
+                            default:
+                              # code...
+                              $biaya_admin = "";
+                             //  return $biaya_admin;
+                              break;
+                          }
+     
+                          $total = $nominals->harga_nominal + $biaya_admin;
+
+
+                           ?>
+
                   
     
                   <table class="table" style = "text-align: center">
@@ -434,7 +619,7 @@ Invoice {{$orders->invoice_code}}
                       <tr>
                     
                         <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
-                        <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
+                        <td>IDR <?php echo $total; ?></td>
                         <td>{{$orders->metode_bayar}}</td>
                       </tr>
             
@@ -528,95 +713,7 @@ Invoice {{$orders->invoice_code}}
 
 
 
-                          <?php
-                      
-                          $harga_order = $orders->harga_order;
-                          $metode_bayar = $orders->metode_bayar;
-     
-                          switch ($metode_bayar) {
-                            case 'BCA':
-                              # code...
-                              $biaya_admin = 600;
-                              // return $biaya_admin;
-                              break;
-                            
-                            case 'BNI':
-                              # code...
-                              $biaya_admin = 500;
-                             //  return $biaya_admin;
-                              break;
-     
-                            case 'MANDIRI':
-                              # code...
-                              $biaya_admin = 500;
-                             //  return $biaya_admin;
-                              break;
-     
-                            case 'ALFAMART':
-                              # code...
-                              $biaya_admin = 500;
-                             //  return $biaya_admin;
-                              break;
-                            
-                           
-                             case 'ALFAMIDI':
-                              # code...
-                              $biaya_admin = 600;
-                             //  return $biaya_admin;
-                              break;
-     
-                              
-                            case 'OVO':
-                              # code...
-                              $biaya_admin = 500;
-                             //  return $biaya_admin;
-                              break;
-     
-     
-                             
-                            case 'GOPAY':
-                              # code...
-                              $biaya_admin = 500;
-                             //  return $biaya_admin;
-                              break;
-     
-                           
-                              case 'DANA':
-                              # code...
-                              $biaya_admin = 500;
-                             //  return $biaya_admin;
-                              break;
-     
-     
-                              
-                            case 'SHOPEEPAY':
-                              # code...
-                              $biaya_admin = 500;
-                             //  return $biaya_admin;
-                              break;
-     
-     
-                           
-                              case 'QRIS':
-                              # code...
-                              $biaya_admin = 500;
-                             //  return $biaya_admin;
-                              break;
-     
-     
-     
-                            default:
-                              # code...
-                              $biaya_admin = "";
-                             //  return $biaya_admin;
-                              break;
-                          }
-     
-                          $total = $nominals->harga_nominal + $biaya_admin;
-
-
-                           ?>
-
+ 
 
                           <tr>
                             <td>Harga</td>
@@ -739,6 +836,99 @@ Invoice {{$orders->invoice_code}}
                 ?>
             
 
+
+
+            <?php
+                      
+            $harga_order = $orders->harga_order;
+            $metode_bayar = $orders->metode_bayar;
+
+            switch ($metode_bayar) {
+              case 'BCA':
+                # code...
+                $biaya_admin = 600;
+                // return $biaya_admin;
+                break;
+              
+              case 'BNI':
+                # code...
+                $biaya_admin = 500;
+               //  return $biaya_admin;
+                break;
+
+              case 'MANDIRI':
+                # code...
+                $biaya_admin = 500;
+               //  return $biaya_admin;
+                break;
+
+              case 'ALFAMART':
+                # code...
+                $biaya_admin = 500;
+               //  return $biaya_admin;
+                break;
+              
+             
+               case 'ALFAMIDI':
+                # code...
+                $biaya_admin = 600;
+               //  return $biaya_admin;
+                break;
+
+                
+              case 'OVO':
+                # code...
+                $biaya_admin = 500;
+               //  return $biaya_admin;
+                break;
+
+
+               
+              case 'GOPAY':
+                # code...
+                $biaya_admin = 500;
+               //  return $biaya_admin;
+                break;
+
+             
+                case 'DANA':
+                # code...
+                $biaya_admin = 500;
+               //  return $biaya_admin;
+                break;
+
+
+                
+              case 'SHOPEEPAY':
+                # code...
+                $biaya_admin = 500;
+               //  return $biaya_admin;
+                break;
+
+
+             
+                case 'QRIS':
+                # code...
+                $biaya_admin = 500;
+               //  return $biaya_admin;
+                break;
+
+
+
+              default:
+                # code...
+                $biaya_admin = "";
+               //  return $biaya_admin;
+                break;
+            }
+
+            $total = $nominals->harga_nominal + $biaya_admin;
+
+
+             ?>
+
+
+
             <table class="table" style = "text-align: center">
               <thead>
                 <tr>
@@ -752,7 +942,7 @@ Invoice {{$orders->invoice_code}}
                 <tr>
               
                   <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
-                  <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
+                  <td>IDR <?php echo $total; ?></td>
                   <td>{{$orders->metode_bayar}}</td>
                 </tr>
       
@@ -841,19 +1031,30 @@ Invoice {{$orders->invoice_code}}
                     </tr> --}}
                   </thead>
                   <tbody>
+
+
+
+              
+
+
+
+
+
+
+
                     <tr>
                       <td>Harga</td>
-                      <td>IDR {{$orders->id_user}}</td>
+                      <td>IDR {{$nominals->harga_nominal}}</td>
                     </tr>
 
                     <tr>
                       <td>Biaya Admin</td>
-                      <td>IDR {{$orders->id_user}}</td>
+                      <td>IDR <?php echo $biaya_admin; ?> </td>
                     </tr>
 
                     <tr>
                       <td> <strong>Total Yang Harus Dibayar</strong> </td>
-                      <td> <strong>IDR {{$orders->id_user}}</strong> </td>
+                      <td> <strong>IDR <?php echo $total; ?></strong> </td>
                     </tr>
           
                   </tbody>
@@ -969,6 +1170,102 @@ Invoice {{$orders->invoice_code}}
 
           
           ?>
+
+
+
+
+
+
+              <?php
+                      
+              $harga_order = $orders->harga_order;
+              $metode_bayar = $orders->metode_bayar;
+
+              switch ($metode_bayar) {
+                case 'BCA':
+                  # code...
+                  $biaya_admin = 600;
+                  // return $biaya_admin;
+                  break;
+                
+                case 'BNI':
+                  # code...
+                  $biaya_admin = 500;
+                 //  return $biaya_admin;
+                  break;
+
+                case 'MANDIRI':
+                  # code...
+                  $biaya_admin = 500;
+                 //  return $biaya_admin;
+                  break;
+
+                case 'ALFAMART':
+                  # code...
+                  $biaya_admin = 500;
+                 //  return $biaya_admin;
+                  break;
+                
+               
+                 case 'ALFAMIDI':
+                  # code...
+                  $biaya_admin = 600;
+                 //  return $biaya_admin;
+                  break;
+
+                  
+                case 'OVO':
+                  # code...
+                  $biaya_admin = 500;
+                 //  return $biaya_admin;
+                  break;
+
+
+                 
+                case 'GOPAY':
+                  # code...
+                  $biaya_admin = 500;
+                 //  return $biaya_admin;
+                  break;
+
+               
+                  case 'DANA':
+                  # code...
+                  $biaya_admin = 500;
+                 //  return $biaya_admin;
+                  break;
+
+
+                  
+                case 'SHOPEEPAY':
+                  # code...
+                  $biaya_admin = 500;
+                 //  return $biaya_admin;
+                  break;
+
+
+               
+                  case 'QRIS':
+                  # code...
+                  $biaya_admin = 500;
+                 //  return $biaya_admin;
+                  break;
+
+
+
+                default:
+                  # code...
+                  $biaya_admin = "";
+                 //  return $biaya_admin;
+                  break;
+              }
+
+              $total = $nominals->harga_nominal + $biaya_admin;
+
+
+               ?>
+
+
       
 
       <table class="table" style = "text-align: center">
@@ -984,7 +1281,7 @@ Invoice {{$orders->invoice_code}}
           <tr>
         
             <td>{{$orders->nama_game}} ( <?php echo $nominal['nominal_kategori']; ?> )</td>
-            <td>IDR <?php echo $nominal['harga_nominal']; ?></td>
+            <td>IDR <?php echo $total; ?></td>
             <td>{{$orders->metode_bayar}}</td>
           </tr>
 
@@ -1066,19 +1363,24 @@ Invoice {{$orders->invoice_code}}
               </tr> --}}
             </thead>
             <tbody>
+
+
+
+
+
               <tr>
                 <td>Harga</td>
-                <td>IDR {{$orders->id_user}}</td>
+                <td>IDR {{$nominals->harga_nominal}}</td>
               </tr>
 
               <tr>
                 <td>Biaya Admin</td>
-                <td>IDR {{$orders->id_user}}</td>
+                <td>IDR <?php echo $biaya_admin; ?> </td>
               </tr>
 
               <tr>
                 <td> <strong>Total Yang Harus Dibayar</strong> </td>
-                <td> <strong>IDR {{$orders->id_user}}</strong> </td>
+                <td> <strong>IDR <?php echo $total; ?> </strong> </td>
               </tr>
     
             </tbody>

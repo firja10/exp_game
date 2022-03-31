@@ -543,7 +543,7 @@ return view('coba_api');
 
         $waktu = date("Ymd");
 
-        $orders['invoice_code'] = $waktu . $last_id;
+        $orders['invoice_code'] = $waktu . '02' .$last_id;
         
 
 
@@ -627,17 +627,60 @@ return view('coba_api');
         # code...
         $order_resellers = new OrderReseller();
 
+
+
+        $terakhir = DB::table('order_resellers')->latest('id')->first();
+        $array_akhir = (array) $terakhir;
+        $id_previous = (int) $array_akhir['id'] ;
+        $last_id = $id_previous + 1;
+
+        $waktu = date("Ymd");
+
         $order_resellers['kategori'] = $request->kategori;
+
+        // if($order_resellers['kategori'] == 'SILVER')
+        // {
+        //     $order_resellers['total'] = 150000;
+        // }
+
+        // elseif($order_resellers['kategori'] == 'GOLD')
+        // {
+        //     $order_resellers['total'] = 500000;
+        // }
+
         $order_resellers['promo_code'] = $request->promo_code;
         $order_resellers['metode_bayar'] = $request->metode_bayar;
         $order_resellers['invoice_code'] = $request->invoice_code;
-        $order_resellers['status_order'] = $request->status_order;
+        $order_resellers['total'] = $request->total;
+        // $order_resellers['status_order'] = $request->status_order;
+        $order_resellers['status_order'] = 0;
         $order_resellers['total'] = $request->total;
         $order_resellers['user_id'] = $request->user_id;
 
+        $order_resellers['invoice_code'] = $waktu . '02' .$last_id;
+
         $order_resellers->save();
 
-        return redirect('/member/invoice/'. $order_resellers['id'])->with('msgJoinReseller','');
+
+
+        // if($order_resellers['kategori'] == 'SILVER')
+        // {
+        //     $order_resellers['total'] = 150000;
+        //     $order_resellers['total']->save();
+        // }
+
+        // elseif($order_resellers['kategori'] == 'GOLD')
+        // {
+        //     $order_resellers['total'] = 500000;
+        //     $order_resellers['total']->save();
+
+        // }
+
+
+
+
+
+        return redirect('/member/invoice/'. $order_resellers['id'])->with('msgJoinReseller','Data Invoice Anda Berhasil Ditambahkan');
 
     }
 

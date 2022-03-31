@@ -367,7 +367,20 @@ $(document).ready(function(){
     $('.tombol_bayar').show();
 
 
-  })
+  });
+
+
+  $(window).load(function(){
+
+var $radios = $('input[type=radio]');
+
+$radios.filter('[class="perak"]').attr('checked',true);
+
+});
+
+
+
+
 
 
 })
