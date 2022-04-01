@@ -477,9 +477,25 @@ Order {{$kategori->nama_kategori}}
                             </h2>
                           </div>
                           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+
+
+                            @if (Auth::check() && (Auth::user()->is_member == 1||Auth::user()->is_admin == 1))
+                            
+                            <div class="card-body">
+                              Saat ini belum tersedia
+                            </div>
+
+                            @else
+                                
                             <div class="card-body">
                               Silakan Login / Sign In Terlebih Dahulu Untuk menjadi Reseller
                             </div>
+                            
+                            @endif
+
+                          
+
+                          
                           </div>
                         </div>
 

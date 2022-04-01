@@ -120,7 +120,7 @@ color:#343a40;
 
                 <div>
                     <h3>
-                        Current Role : <button class = "btn btn-primary">Member</button>
+                        Current Role : <button class = "btn btn-primary" type = "button">Member</button>
                     </h3>
                 </div>
                 <hr>
@@ -234,7 +234,7 @@ color:#343a40;
 
 
                                 <label class = "card_order">
-                                  <input type="radio" name="kategori" class="card-input-element emas" value = "GOLD" />
+                                  <input type="radio" name="kategori" class="card-input-element" value = "GOLD" onclick="document.getElementById('emas').click()" />
                                   {{-- <input type="hidden" name="total" value = "500000"> --}}
                         
                                     {{-- <div class="card card-default card-masukkan"> --}}
@@ -244,7 +244,7 @@ color:#343a40;
                                           <h5> <strong>Gold</strong> </h5> 
                                         </div>
 
-                                        <input type="radio" name="total" value = "150000" style = "visibility: hidden" class = "emas"/>
+                                        <input type="radio" name="total" value = "500000" style = "visibility: hidden" id = "emas"/>
 
                                         <div style = "ml-auto; text-align:right;">
                                         </div>

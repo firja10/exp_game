@@ -72,16 +72,24 @@ Invoice {{$orders->invoice_code}}
                 
                 $tanggal_mulai = $orders->created_at;
                 $tanggal_akhir = $tanggal_mulai->addDays(1) ;
-                
+                $tanggal_sekarang = date('Y-m-d');
                 
                 
                 ?>
               <h6 class="card-title">Tanggal Dibuat : {{$orders->created_at}}</h6>
               <h6 class="card-title" style = "color:red;">Tanggal Kadaluarsa : <?php echo $tanggal_akhir;  ?> </h6>
 
+              
+              @if ($tanggal_sekarang > $tanggal_akhir)
+              <div class="alert alert-danger">
+                <p class="card-text">Invoice Telah Kadaluarsa</p>
+              </div>
+              @else
               <div class="alert alert-warning">
                 <p class="card-text">Harap Segera Melakukan Pembayaran sebelum 1 x 24 jam setelah Pemesanan ! </p>
               </div>
+              @endif
+        
 
               <center>
 
@@ -430,8 +438,14 @@ Invoice {{$orders->invoice_code}}
             <center>
               {{-- <a href="#" class="btn btn-primary">Lakukan Konfirmasi Pembayaran</a> --}}
 
-
+              @if ($tanggal_sekarang > $tanggal_akhir)
+              <button class = "btn btn-primary" type = "button" data-toggle = "modal" data-target = "#ModalKonfirmasi" disabled> Lakukan Konfirmasi Pembayaran</button>
+              @else
               <button class = "btn btn-primary" type = "button" data-toggle = "modal" data-target = "#ModalKonfirmasi"> Lakukan Konfirmasi Pembayaran</button>
+              @endif
+        
+
+            
 
             </center>
               
@@ -811,11 +825,12 @@ Invoice {{$orders->invoice_code}}
               $tanggal_mulai = $orders->created_at;
               $tanggal_akhir = $tanggal_mulai->addDays(1) ;
               
-              
+              $tanggal_sekarang = date('Y-m-d');
               
               ?>
             <h6 class="card-title">Tanggal Dibuat : {{$orders->created_at}}</h6>
             <h6 class="card-title" style = "color:red;">Tanggal Kadaluarsa : <?php echo $tanggal_akhir;  ?> </h6>
+
 
             <div class="alert alert-success">
               <p class="card-text">Telah Dilakukan Pembayaran Untuk Invoice Inii </p>
@@ -1147,15 +1162,23 @@ Invoice {{$orders->invoice_code}}
         $tanggal_mulai = $orders->created_at;
         $tanggal_akhir = $tanggal_mulai->addDays(1) ;
         
+        $tanggal_sekarang = date('Y-m-d');
         
         
         ?>
       <h6 class="card-title">Tanggal Dibuat : {{$orders->created_at}}</h6>
       <h6 class="card-title" style = "color:red;">Tanggal Kadaluarsa : <?php echo $tanggal_akhir;  ?> </h6>
 
+      @if ($tanggal_sekarang > $tanggal_akhir)
+      <div class="alert alert-danger">
+        <p class="card-text">Invoice Telah Kadaluarsa</p>
+      </div>
+      @else
       <div class="alert alert-warning">
         <p class="card-text">Harap Segera Melakukan Pembayaran sebelum 1 x 24 jam setelah Pemesanan ! </p>
       </div>
+      @endif
+
 
       <center>
 
@@ -1399,8 +1422,13 @@ Invoice {{$orders->invoice_code}}
       {{-- <a href="#" class="btn btn-primary">Lakukan Konfirmasi Pembayaran</a> --}}
 
 
+      @if ($tanggal_sekarang > $tanggal_akhir)
+      <button class = "btn btn-primary" type = "button" data-toggle = "modal" data-target = "#ModalKonfirmasi" disabled> Lakukan Konfirmasi Pembayaran</button>
+      @else
       <button class = "btn btn-primary" type = "button" data-toggle = "modal" data-target = "#ModalKonfirmasi"> Lakukan Konfirmasi Pembayaran</button>
+      @endif
 
+      
     </center>
       
     </div>
